@@ -50,7 +50,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="toss-skin.css?v=89" />
+    <link rel="stylesheet" href="toss-skin.css?v=90" />
     <style id="niusn-preloader-critical">
       html.niusn-preloader-is-active,
       html.niusn-preloader-is-active body {
@@ -515,44 +515,46 @@
         </nav>
         <p class="footer-copy" data-i18n="footer.copyright">© 2026 NIUSN Corp. All rights reserved.</p>
       </div>
-      <section
-        class="footer-marquee"
-        data-i18n-attr="aria-label:footer.marqueeAria"
-        aria-label="NIUSN · AI-Powered Animation Studio · Hong Kong Comic Con 2026"
-      >
-        <div class="footer-marquee__viewport" aria-hidden="true">
-          <div class="footer-marquee__track">
-            <div class="footer-marquee__row">
-              <div class="footer-marquee__chunk">
-                <span class="footer-marquee__brand">NIUSN</span>
-                <span class="footer-marquee__sep" aria-hidden="true">·</span>
-                <span data-i18n="footer.marqueeTagline">AI-Powered Animation Studio</span>
-                <span class="footer-marquee__sep" aria-hidden="true">·</span>
-                <span data-i18n="footer.marqueeEvent">Hong Kong Comic Con 2026</span>
-                <span class="footer-marquee__sep" aria-hidden="true">·</span>
-                <span data-i18n="footer.marqueeBoothLine">HKCEC · Hall 3E · Booth D29</span>
-              </div>
-              <div class="footer-marquee__chunk">
-                <span class="footer-marquee__brand">NIUSN</span>
-                <span class="footer-marquee__sep" aria-hidden="true">·</span>
-                <span data-i18n="footer.marqueeTagline">AI-Powered Animation Studio</span>
-                <span class="footer-marquee__sep" aria-hidden="true">·</span>
-                <span data-i18n="footer.marqueeEvent">Hong Kong Comic Con 2026</span>
-                <span class="footer-marquee__sep" aria-hidden="true">·</span>
-                <span data-i18n="footer.marqueeBoothLine">HKCEC · Hall 3E · Booth D29</span>
-              </div>
-              <div class="footer-marquee__chunk">
-                <span class="footer-marquee__brand">NIUSN</span>
-                <span class="footer-marquee__sep" aria-hidden="true">·</span>
-                <span data-i18n="footer.marqueeTagline">AI-Powered Animation Studio</span>
-                <span class="footer-marquee__sep" aria-hidden="true">·</span>
-                <span data-i18n="footer.marqueeEvent">Hong Kong Comic Con 2026</span>
-              </div>
+    </footer>
+
+    <!-- Fixed ticker: *outside* .site-footer so `position:fixed` isn’t affected by footer stacking / body scroll-lock. -->
+    <section
+      class="footer-marquee"
+      data-i18n-attr="aria-label:footer.marqueeAria"
+      aria-label="NIUSN · AI-Powered Animation Studio · Hong Kong Comic Con 2026"
+    >
+      <div class="footer-marquee__viewport" aria-hidden="true">
+        <div class="footer-marquee__track">
+          <div class="footer-marquee__row">
+            <div class="footer-marquee__chunk">
+              <span class="footer-marquee__brand">NIUSN</span>
+              <span class="footer-marquee__sep" aria-hidden="true">·</span>
+              <span data-i18n="footer.marqueeTagline">AI-Powered Animation Studio</span>
+              <span class="footer-marquee__sep" aria-hidden="true">·</span>
+              <span data-i18n="footer.marqueeEvent">Hong Kong Comic Con 2026</span>
+              <span class="footer-marquee__sep" aria-hidden="true">·</span>
+              <span data-i18n="footer.marqueeBoothLine">HKCEC · Hall 3E · Booth D29</span>
+            </div>
+            <div class="footer-marquee__chunk">
+              <span class="footer-marquee__brand">NIUSN</span>
+              <span class="footer-marquee__sep" aria-hidden="true">·</span>
+              <span data-i18n="footer.marqueeTagline">AI-Powered Animation Studio</span>
+              <span class="footer-marquee__sep" aria-hidden="true">·</span>
+              <span data-i18n="footer.marqueeEvent">Hong Kong Comic Con 2026</span>
+              <span class="footer-marquee__sep" aria-hidden="true">·</span>
+              <span data-i18n="footer.marqueeBoothLine">HKCEC · Hall 3E · Booth D29</span>
+            </div>
+            <div class="footer-marquee__chunk">
+              <span class="footer-marquee__brand">NIUSN</span>
+              <span class="footer-marquee__sep" aria-hidden="true">·</span>
+              <span data-i18n="footer.marqueeTagline">AI-Powered Animation Studio</span>
+              <span class="footer-marquee__sep" aria-hidden="true">·</span>
+              <span data-i18n="footer.marqueeEvent">Hong Kong Comic Con 2026</span>
             </div>
           </div>
         </div>
-      </section>
-    </footer>
+      </div>
+    </section>
 
     <!-- Fixed scroll-to-top — glass pill + scroll progress ring (parity with niusn-landing) -->
     <button

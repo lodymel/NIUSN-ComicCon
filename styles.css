@@ -215,7 +215,7 @@ html.is-loaded .hero-event .hero-event__inner {
 
 .brand-bg-canvas {
   position: fixed;
-  inset: 0;
+  inset: 0; 
   z-index: 0;
   width: 100%;
   height: 100%;
@@ -4203,6 +4203,11 @@ html:not(:lang(en)) .wwd-copy--contact-headlines .wwd-display--primary {
   z-index: 80;
   margin-top: 0;
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  /* Own compositing layer — reduces iOS Safari “drift” with fixed + scroll/URL bar */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   border-top: 1px solid rgba(165, 90, 214, 0.28);
   padding-bottom: env(safe-area-inset-bottom, 0px);
   background: linear-gradient(
@@ -4286,6 +4291,17 @@ html:not(:lang(en)) .wwd-copy--contact-headlines .wwd-display--primary {
 @keyframes footer-marquee-scroll {
   to {
     transform: translateX(-50%);
+  }
+}
+
+/* Hamburger open: `body` is `position:fixed` for scroll-lock — keep ticker out of the way and
+   avoid z-fighting (ticker was z-80 vs nav sheet z-49, so it drew on top and looked “unmoored”). */
+@media (max-width: 768px) {
+  html.mobile-nav-locked .footer-marquee {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease, visibility 0.15s ease;
   }
 }
 

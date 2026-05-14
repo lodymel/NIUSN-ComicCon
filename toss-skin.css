@@ -2457,7 +2457,7 @@ body::before {
 .site-footer .footer-sns-list a { color: var(--tk-graphite) !important; }
 .site-footer .footer-sns-list a:hover { color: var(--tk-blush-deep) !important; }
 .site-footer .footer-copy { color: var(--tk-mist) !important; }
-.site-footer .footer-marquee {
+.footer-marquee {
   background: var(--tk-blush-soft) !important;
   color: var(--tk-ruby) !important;
 }
@@ -2473,8 +2473,8 @@ body::before {
  *     as the marquee scrolls past.
  * Result: a designed cadence, not a uniform wall. */
 
-.site-footer .footer-marquee__viewport,
-.site-footer .footer-marquee__viewport span {
+.footer-marquee__viewport,
+.footer-marquee__viewport span {
   color: var(--tk-ruby) !important;
 }
 
@@ -2488,14 +2488,14 @@ body::before {
  * because opacity cascades onto children and would drag the NIUSN
  * brand below its fixed 85% anchor. By coloring the body and
  * separator spans with rgba, the brand stays independent. */
-.site-footer .footer-marquee__chunk {
+.footer-marquee__chunk {
   opacity: 1 !important;
 }
 
 /* Brand: ink @ 80% color × 90% opacity — the steady anchor
  * across every chunk, gently veiled so it sits a touch behind
  * the body copy rhythm without losing wordmark presence. */
-.site-footer .footer-marquee__brand {
+.footer-marquee__brand {
   color: rgba(58, 42, 48, 0.8) !important;
   font-weight: 700 !important;
   letter-spacing: 0.22em !important;
@@ -2505,13 +2505,13 @@ body::before {
 
 /* Body copy — full blush-deep on odd chunks (the "beat"),
  * dimmed to 65% on even chunks (the "rest"). */
-.site-footer .footer-marquee__viewport
+.footer-marquee__viewport
   .footer-marquee__chunk:nth-child(odd)
   > span:not(.footer-marquee__brand):not(.footer-marquee__sep) {
   color: rgba(232, 155, 173, 1) !important;  /* tk-blush-deep @ 100% */
   font-weight: 500 !important;
 }
-.site-footer .footer-marquee__viewport
+.footer-marquee__viewport
   .footer-marquee__chunk:nth-child(even)
   > span:not(.footer-marquee__brand):not(.footer-marquee__sep) {
   color: rgba(232, 155, 173, 0.65) !important; /* tk-blush-deep @ 65% */
@@ -2520,15 +2520,15 @@ body::before {
 
 /* Separators — always pure connective tissue, dimmest of the trio.
  * Track the chunk rhythm at half-strength of the body copy. */
-.site-footer .footer-marquee__chunk:nth-child(odd)  .footer-marquee__sep {
+.footer-marquee__chunk:nth-child(odd)  .footer-marquee__sep {
   color: rgba(232, 155, 173, 0.45) !important;
   opacity: 1 !important;
 }
-.site-footer .footer-marquee__chunk:nth-child(even) .footer-marquee__sep {
+.footer-marquee__chunk:nth-child(even) .footer-marquee__sep {
   color: rgba(232, 155, 173, 0.3) !important;
   opacity: 1 !important;
 }
-.site-footer .footer-marquee__mark {
+.footer-marquee__mark {
   filter: drop-shadow(0 0 6px rgba(232, 155, 173, 0.55)) !important;
 }
 
