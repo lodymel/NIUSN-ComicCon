@@ -580,7 +580,8 @@
     function syncScrollTopFab() {
       const loaded = rootEl.classList.contains("is-loaded");
       const y = window.scrollY || document.documentElement.scrollTop;
-      const show = loaded && y > 420;
+      /* Show after small scroll on all viewports once the preloader has released the page */
+      const show = loaded && y > 200;
 
       setScrollTopProgress();
 

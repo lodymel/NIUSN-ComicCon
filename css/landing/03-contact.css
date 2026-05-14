@@ -647,6 +647,7 @@ html:not(:lang(en)) .wwd-copy--contact-headlines .wwd-display--primary {
 
 .scroll-top-fab.is-visible {
   opacity: 1;
+  visibility: visible;
   transform: translate3d(0, 0, 0) scale(1);
   pointer-events: auto;
 }
