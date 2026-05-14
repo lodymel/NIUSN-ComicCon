@@ -1,0 +1,92 @@
+/* TOSS skin — partial (order preserved). */
+
+/* ============================================================
+   Footer recolor (nav pill marquee on the dark site is a
+   different vibe — soften to the pastel skin)
+============================================================ */
+.site-footer {
+  background: var(--tk-cotton) !important;
+  color: var(--tk-graphite) !important;
+  border-top: 1px dashed var(--tk-line);
+}
+.site-footer .footer-shell {
+  padding-top: 56px; padding-bottom: 32px;
+}
+.site-footer .footer-sns-list a { color: var(--tk-graphite) !important; }
+.site-footer .footer-sns-list a:hover { color: var(--tk-blush-deep) !important; }
+.site-footer .footer-copy { color: var(--tk-mist) !important; }
+.site-footer .footer-marquee {
+  background: var(--tk-blush-soft) !important;
+  color: var(--tk-ruby) !important;
+}
+
+/* ── Marquee rhythm ──────────────────────────────────────
+ * Two-layer cadence keeps the loop from reading as a flat
+ * ribbon of equal text:
+ *   ① Intra-chunk: brand (NIUSN) is the anchor at full
+ *     strength; supporting copy steps down so the eye
+ *     locks onto the wordmark first.
+ *   ② Inter-chunk: chunks cycle 100% → 55% → 80% across
+ *     the row, giving a "beat · rest · half-beat" pulse
+ *     as the marquee scrolls past.
+ * Result: a designed cadence, not a uniform wall. */
+
+.site-footer .footer-marquee__viewport,
+.site-footer .footer-marquee__viewport span {
+  color: var(--tk-ruby) !important;
+}
+
+/* Inter-chunk pulse — each chunk (NIUSN · AI-Powered Animation
+ * Studio · Hong Kong Comic Con 2026 · HKCEC · Hall 3E · Booth D29)
+ * is one composition. Alternate full-strength and dimmed so the
+ * marquee reads as beat → rest → beat → rest as it scrolls.
+ *
+ * Implementation note: the rhythm is applied via the alpha channel
+ * of the supporting spans' color, NOT via `opacity` on the chunk —
+ * because opacity cascades onto children and would drag the NIUSN
+ * brand below its fixed 85% anchor. By coloring the body and
+ * separator spans with rgba, the brand stays independent. */
+.site-footer .footer-marquee__chunk {
+  opacity: 1 !important;
+}
+
+/* Brand: ink @ 80% color × 90% opacity — the steady anchor
+ * across every chunk, gently veiled so it sits a touch behind
+ * the body copy rhythm without losing wordmark presence. */
+.site-footer .footer-marquee__brand {
+  color: rgba(58, 42, 48, 0.8) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.22em !important;
+  text-shadow: none !important;
+  opacity: 0.9 !important;
+}
+
+/* Body copy — full blush-deep on odd chunks (the "beat"),
+ * dimmed to 65% on even chunks (the "rest"). */
+.site-footer .footer-marquee__viewport
+  .footer-marquee__chunk:nth-child(odd)
+  > span:not(.footer-marquee__brand):not(.footer-marquee__sep) {
+  color: rgba(232, 155, 173, 1) !important;  /* tk-blush-deep @ 100% */
+  font-weight: 500 !important;
+}
+.site-footer .footer-marquee__viewport
+  .footer-marquee__chunk:nth-child(even)
+  > span:not(.footer-marquee__brand):not(.footer-marquee__sep) {
+  color: rgba(232, 155, 173, 0.65) !important; /* tk-blush-deep @ 65% */
+  font-weight: 500 !important;
+}
+
+/* Separators — always pure connective tissue, dimmest of the trio.
+ * Track the chunk rhythm at half-strength of the body copy. */
+.site-footer .footer-marquee__chunk:nth-child(odd)  .footer-marquee__sep {
+  color: rgba(232, 155, 173, 0.45) !important;
+  opacity: 1 !important;
+}
+.site-footer .footer-marquee__chunk:nth-child(even) .footer-marquee__sep {
+  color: rgba(232, 155, 173, 0.3) !important;
+  opacity: 1 !important;
+}
+.site-footer .footer-marquee__mark {
+  filter: drop-shadow(0 0 6px rgba(232, 155, 173, 0.55)) !important;
+}
+

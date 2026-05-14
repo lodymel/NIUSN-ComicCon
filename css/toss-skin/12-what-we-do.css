@@ -1,0 +1,522 @@
+/* TOSS skin — partial (order preserved). */
+
+/* ============================================================
+   WHAT WE DO  ·  Section 3 — three-pillar editorial block
+   ────────────────────────────────────────────────────────────
+   Sits between the booth/map and the contact card. Authored
+   as a fully self-scoped block under `.niusn-what` so the
+   stylings can never leak into the surrounding sections, even
+   as the rest of the design system evolves.
+
+   The section ships its own local copy of the Plush Pastel
+   tokens (mirroring the parent `--tk-*` palette). This is on
+   purpose — it means the section can be lifted to other
+   pages or design-system docs without depending on the
+   parent tokens being present.
+
+   Typography stack:
+     · display → Fraunces (italic emphasis for `<em>` words)
+     · body    → DM Sans
+     · mono    → JetBrains Mono (eyebrows, kickers, numerals)
+   All three are preloaded in `index.html`.
+
+   Color choreography per card:
+     · c1 / c2 / c3 — unified blush halo + blush-deep accent (foot CTAs, emphasis)
+============================================================ */
+.niusn-what {
+  --color-blush:        #F4C8D2;
+  --color-blush-deep:   #E89BAD;
+  --color-blush-soft:   #FBE4EB;
+  --color-cotton:       #FFF6F4;
+  --color-cream:        #FFFBF2;
+  --color-mint:         #C8E5D4;
+  --color-sky:          #B9D4ED;
+  --color-butter:       #F5E08C;
+  --color-lilac:        #D9C9E8;
+  --gem-ruby:           #D94A6B;
+  --color-ink:          #3A2A30;
+  --color-graphite:     #5C5560;
+  --color-mist:         #B8AFB4;
+
+  --nw-font-display: "Fraunces", Georgia, serif;
+  --nw-font-body:    "DM Sans", system-ui, sans-serif;
+  --nw-font-mono:    "JetBrains Mono", monospace;
+
+  --nw-radius-md: 18px;
+  --nw-radius-lg: 32px;
+  --nw-shadow-soft:  0 2px 8px rgba(232, 155, 173, 0.12), 0 12px 32px rgba(232, 155, 173, 0.08);
+  --nw-shadow-plush: 0 4px 14px rgba(184, 130, 145, 0.18), 0 24px 60px rgba(184, 130, 145, 0.10);
+
+  color: var(--color-ink);
+  font-family: var(--nw-font-body);
+  background: var(--color-cotton);
+  padding: 120px 40px;
+  box-sizing: border-box;
+}
+.niusn-what *,
+.niusn-what *::before,
+.niusn-what *::after { box-sizing: border-box; }
+
+.niusn-what .niusn-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+/* ───── Header block ───── */
+/* Head block — now mirrors `.tk-booth__head`:
+ *   centered narrow column, eyebrow → Anton title → graphite lede.
+ *   Same composition rhythm as the booth/contact sections so the
+ *   page reads as one editorial spread.
+ *   Flex column establishes a new formatting context so child
+ *   margins (e.g. the lede's bottom breathing band) stay
+ *   visible and don't collapse into the head's own margin.
+ *   `nw-headstack` isolates title↔lede `gap` from the eyebrow
+ *   so wrapped mixed-type titles match the booth rhythm optically. */
+.niusn-what .nw-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 56px;
+  padding-bottom: 0;
+  border-bottom: 0;
+  gap: 10px;
+}
+@media (max-width: 880px) {
+  .niusn-what { padding: 72px 22px; }
+  .niusn-what .nw-head { margin-bottom: 40px; }
+}
+
+/* Eyebrow — mirrors `.tk-eyebrow` exactly so the section's
+ * opening note speaks in the same voice as Booth / Contact:
+ * blush-deep mono caps + blush-deep dot with halo. */
+.niusn-what .nw-eyebrow {
+  font-family: var(--font-tk-mono, var(--nw-font-mono));
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--tk-blush-deep, var(--color-blush-deep));
+  margin-bottom: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.niusn-what .nw-eyebrow::before {
+  content: "";
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--tk-blush-deep, var(--color-blush-deep));
+  box-shadow: 0 0 0 4px rgba(232, 155, 173, 0.22);
+}
+
+/* Title — Anton-style H2:
+ *   · base: headline stack, uppercase, ink
+ *   · em:   same condensed sans as reference “LET’S” block (bold poster voice), blush-deep, sentence case */
+.niusn-what .nw-title {
+  margin: 24px 0 0;
+  margin-block-end: 0;
+  font-family: var(--font-tk-headline, var(--nw-font-display));
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  font-size: clamp(40px, 5vw, 68px);
+  line-height: 0.96;
+  color: var(--tk-ink, var(--color-ink));
+  max-width: none;
+}
+.niusn-what .nw-title em {
+  font-family: var(--font-tk-headline, var(--nw-font-display));
+  font-style: normal;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: inherit;
+  font-variation-settings: normal;
+  color: var(--tk-blush-deep, var(--color-blush-deep));
+}
+.niusn-what .nw-title-dot {
+  color: var(--tk-blush-deep, var(--color-blush-deep));
+}
+
+/* Lede — sized & coloured to twin with `.tk-booth__lede`:
+ *   centered, narrow, graphite body type with ink-weight strong.
+ *   `margin-bottom` matches the booth lede's breathing band so
+ *   both sections breathe with the same rhythm before the
+ *   content beneath them (map / pillar cards). */
+.niusn-what .nw-lede {
+  margin: 0 auto clamp(16px, 1.6vw, 24px);
+  max-width: 540px;
+  font-family: var(--font-tk-body, var(--nw-font-body));
+  font-size: clamp(15px, 1.3vw, 18px);
+  line-height: 1.55;
+  color: var(--tk-graphite, var(--color-graphite));
+}
+.niusn-what .nw-lede strong {
+  color: var(--tk-ink, var(--color-ink));
+  font-weight: 500;
+}
+
+/* ───── Three pillars ───── */
+.niusn-what .nw-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 56px;
+}
+@media (max-width: 1040px) {
+  .niusn-what .nw-grid { grid-template-columns: 1fr; gap: 20px; }
+}
+
+.niusn-what .nw-card {
+  position: relative;
+  background: white;
+  border-radius: var(--nw-radius-lg);
+  padding: 36px 32px 32px;
+  box-shadow: var(--nw-shadow-soft);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 440px;
+  transition: transform 0.45s cubic-bezier(0.2, 0.9, 0.3, 1.2), box-shadow 0.4s;
+}
+.niusn-what .nw-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--nw-shadow-plush);
+}
+
+.niusn-what .nw-card::before {
+  content: "";
+  position: absolute;
+  width: 240px; height: 240px;
+  border-radius: 50%;
+  top: -90px; right: -90px;
+  filter: blur(36px);
+  opacity: 0.55;
+  z-index: 0;
+}
+.niusn-what .nw-card.c1::before,
+.niusn-what .nw-card.c2::before,
+.niusn-what .nw-card.c3::before {
+  background: radial-gradient(circle, var(--color-blush) 0%, transparent 70%);
+}
+
+/* 3D pillar art — centered, sized to the grid; soft accent shadows echo each card halo */
+.niusn-what .nw-card__art {
+  position: relative;
+  z-index: 1;
+  margin: 10px auto 6px;
+  width: min(220px, calc(var(--nw-pillar-art-slot-3c) * 0.78));
+  flex-shrink: 0;
+  pointer-events: none;
+}
+.niusn-what .nw-card__art img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.niusn-what .nw-card .nw-card__art img {
+  filter: drop-shadow(0 18px 36px rgba(232, 155, 173, 0.32));
+}
+
+@media (max-width: 1040px) {
+  .niusn-what .nw-card__art {
+    width: min(200px, calc(var(--nw-pillar-art-slot-1c) * 0.70));
+    margin-top: 6px;
+  }
+}
+
+.niusn-what .nw-num {
+  font-family: var(--nw-font-mono);
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  line-height: 1;
+  color: var(--color-blush-deep);
+  position: relative;
+  z-index: 1;
+  margin-bottom: 4px;
+}
+
+.niusn-what .nw-card h3 {
+  font-family: var(--nw-font-display);
+  font-weight: 500;
+  font-size: clamp(22px, 2.2vw, 28px);
+  line-height: 1.15;
+  letter-spacing: -0.012em;
+  color: var(--color-ink);
+  margin-top: 18px;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+  max-width: 32ch;
+}
+.niusn-what .nw-card h3 em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--color-blush-deep);
+}
+
+.niusn-what .nw-card p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-graphite);
+  position: relative;
+  z-index: 1;
+  max-width: 42ch;
+  margin: 0 0 24px;
+}
+
+.niusn-what .nw-card.c1,
+.niusn-what .nw-card.c2,
+.niusn-what .nw-card.c3 {
+  --nw-accent: var(--color-blush-deep);
+  --nw-accent-soft: rgba(232, 155, 173, 0.22);
+}
+
+/* Pin CTAs to a shared baseline: grid row height matches tallest card; flex pushes footer down. */
+.niusn-what .nw-rule {
+  margin-top: auto;
+  padding-top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 14px;
+  border-top: 1px dashed rgba(58, 42, 48, 0.12);
+  position: relative;
+  z-index: 1;
+}
+
+/* Liquid wash — dual-layer gradient drift + slow nudge (background on ::before so
+ * `transition: background` on `.hero-cta__inner` cannot damp the motion). */
+@keyframes niusn-what-cta-water {
+  0% {
+    background-position: 0% 44%, 100% 56%;
+    transform: translate3d(-3%, 0, 0) scale(1.14);
+  }
+  25% {
+    background-position: 42% 28%, 58% 72%;
+    transform: translate3d(2%, -2.5%, 0) scale(1.16);
+  }
+  50% {
+    background-position: 100% 52%, 0% 48%;
+    transform: translate3d(3%, 1.5%, 0) scale(1.12);
+  }
+  75% {
+    background-position: 38% 68%, 72% 32%;
+    transform: translate3d(-2.5%, 2%, 0) scale(1.15);
+  }
+  100% {
+    background-position: 0% 44%, 100% 56%;
+    transform: translate3d(-3%, 0, 0) scale(1.14);
+  }
+}
+
+/* NW · Card footer CTA — living blush-deep gradient (typographic dot hue); hover inverts to cotton frost. */
+.niusn-what .nw-foot__cta.hero-cta.hero-cta--glass {
+  touch-action: manipulation;
+  display: flex;
+  width: 100%;
+  margin: 0;
+  align-self: stretch;
+  justify-content: center;
+  -webkit-tap-highlight-color: rgba(232, 155, 173, 0.28);
+  --nw-cta-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --nw-cta-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+/*
+ * Default: solid blush-deep base + ::before carries the moving ink (palette matches
+ * `.nw-title-dot`). Hover/focus hides ::before and cross-fades to frosted white.
+ */
+.niusn-what .nw-foot__cta.hero-cta.hero-cta--glass .hero-cta__inner {
+  flex: 1 1 auto;
+  width: 100%;
+  max-width: 100%;
+  justify-content: center;
+  transform: translate3d(0, 0, 0);
+  transition:
+    transform 0.55s var(--nw-cta-ease-out),
+    background-color 0.5s var(--nw-cta-ease),
+    border-color 0.5s var(--nw-cta-ease),
+    box-shadow 0.55s var(--nw-cta-ease-out),
+    color 0.45s var(--nw-cta-ease),
+    -webkit-backdrop-filter 0.5s var(--nw-cta-ease),
+    backdrop-filter 0.5s var(--nw-cta-ease);
+  background-color: var(--tk-blush-deep) !important;
+  background-image: none !important;
+  border: 1px solid rgba(232, 155, 173, 0.65) !important;
+  color: var(--tk-cream) !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.38),
+    inset 0 -1px 0 rgba(184, 130, 145, 0.18),
+    0 12px 36px rgba(232, 155, 173, 0.35),
+    0 2px 10px rgba(184, 130, 145, 0.2),
+    0 0 0 1px rgba(232, 155, 173, 0.2) !important;
+}
+.niusn-what .nw-foot__cta.hero-cta.hero-cta--glass .hero-cta__inner::before {
+  content: "";
+  position: absolute;
+  inset: -18%;
+  border-radius: inherit;
+  z-index: 0;
+  pointer-events: none;
+  background-color: transparent;
+  background-image:
+    linear-gradient(
+      118deg,
+      var(--tk-blush) 0%,
+      var(--tk-blush-deep) 22%,
+      var(--tk-blush) 38%,
+      rgba(255, 255, 255, 0.22) 48%,
+      var(--tk-blush-deep) 58%,
+      var(--tk-ruby) 74%,
+      var(--tk-blush-deep) 88%,
+      var(--tk-blush) 100%
+    ),
+    linear-gradient(
+      302deg,
+      transparent 0%,
+      var(--tk-blush-soft) 28%,
+      var(--tk-blush-deep) 48%,
+      transparent 65%,
+      var(--tk-blush) 82%,
+      transparent 100%
+    );
+  background-size: 420% 420%, 480% 480%;
+  background-repeat: no-repeat;
+  background-position: 0% 44%, 100% 56%;
+  opacity: 1;
+  filter: blur(0);
+  animation: niusn-what-cta-water 20s cubic-bezier(0.45, 0.05, 0.25, 1) infinite;
+  transition:
+    opacity 0.52s var(--nw-cta-ease-out),
+    filter 0.52s var(--nw-cta-ease-out);
+}
+.niusn-what .nw-foot__cta.hero-cta.hero-cta--glass .hero-cta__inner::after {
+  opacity: 0.5 !important;
+  background:
+    radial-gradient(ellipse 62% 78% at 32% 0%, rgba(255, 255, 255, 0.62) 0%, transparent 55%),
+    radial-gradient(ellipse 42% 52% at 85% 95%, rgba(255, 251, 242, 0.28) 0%, transparent 52%),
+    radial-gradient(circle at 50% 120%, rgba(217, 74, 107, 0.12) 0%, transparent 45%) !important;
+  transition: opacity 0.5s var(--nw-cta-ease) !important;
+}
+.niusn-what .nw-foot__cta.hero-cta.hero-cta--glass .hero-cta__enter-hint {
+  transition: color 0.45s var(--nw-cta-ease);
+}
+.niusn-what .nw-foot__cta.hero-cta.hero-cta--glass .hero-cta__chev,
+.niusn-what .nw-foot__cta.hero-cta.hero-cta--glass .hero-cta__label {
+  color: var(--tk-cream) !important;
+  transition: color 0.45s var(--nw-cta-ease);
+}
+
+.niusn-what .nw-foot__cta.hero-cta.hero-cta--glass .hero-cta__chev {
+  opacity: 0.92;
+}
+
+/*
+ * Pointer-capable desktops: dissolve wash (blur bloom), pill lifts.
+ * Chevron motion matches other `.hero-cta--glass` (per-chevrons `translate3d` in styles.css — no extra hint slide).
+ */
+@media (hover: hover) and (pointer: fine) {
+  .niusn-what .nw-foot__cta.hero-cta.hero-cta--glass:hover .hero-cta__inner,
+  .niusn-what .nw-foot__cta.hero-cta.hero-cta--glass:focus-visible .hero-cta__inner {
+    transform: translate3d(0, -4px, 0) scale(1.018);
+  }
+
+  .niusn-what .nw-foot__cta.hero-cta.hero-cta--glass:hover .hero-cta__inner::before,
+  .niusn-what .nw-foot__cta.hero-cta.hero-cta--glass:focus-visible .hero-cta__inner::before {
+    opacity: 0 !important;
+    filter: blur(22px) !important;
+    animation: none !important;
+  }
+}
+
+/* Frost + ink swap: coarse hover, Assistive-tech focus, sticky Android hovers — no phantom lift here. */
+.niusn-what .nw-foot__cta.hero-cta.hero-cta--glass:hover .hero-cta__inner,
+.niusn-what .nw-foot__cta.hero-cta.hero-cta--glass:focus-visible .hero-cta__inner {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid rgba(232, 155, 173, 0.52) !important;
+  color: var(--tk-ink) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(150%) !important;
+  backdrop-filter: blur(16px) saturate(150%) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -1px 0 rgba(217, 74, 107, 0.07),
+    0 10px 30px rgba(232, 155, 173, 0.2),
+    0 1px 6px rgba(58, 42, 48, 0.08) !important;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  /* Reclaim plush outer lift after frost block’s lighter resting shadow. */
+  .niusn-what .nw-foot__cta.hero-cta.hero-cta--glass:hover .hero-cta__inner,
+  .niusn-what .nw-foot__cta.hero-cta.hero-cta--glass:focus-visible .hero-cta__inner {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.98),
+      inset 0 -1px 0 rgba(217, 74, 107, 0.06),
+      0 16px 40px rgba(232, 155, 173, 0.28),
+      0 4px 14px rgba(184, 130, 145, 0.16),
+      0 0 0 1px rgba(232, 155, 173, 0.24) !important;
+  }
+}
+.niusn-what .nw-foot__cta.hero-cta.hero-cta--glass:hover .hero-cta__inner::after,
+.niusn-what .nw-foot__cta.hero-cta.hero-cta--glass:focus-visible .hero-cta__inner::after {
+  opacity: 1 !important;
+  background:
+    radial-gradient(ellipse 55% 70% at 42% 0%, rgba(255, 255, 255, 0.62) 0%, transparent 52%),
+    radial-gradient(ellipse 40% 55% at 78% 108%, rgba(232, 155, 173, 0.32) 0%, transparent 48%) !important;
+}
+.niusn-what .nw-foot__cta.hero-cta.hero-cta--glass:hover .hero-cta__label,
+.niusn-what .nw-foot__cta.hero-cta.hero-cta--glass:focus-visible .hero-cta__label {
+  color: var(--tk-ink) !important;
+}
+.niusn-what .nw-foot__cta.hero-cta.hero-cta--glass:hover .hero-cta__enter-hint,
+.niusn-what .nw-foot__cta.hero-cta.hero-cta--glass:focus-visible .hero-cta__enter-hint,
+.niusn-what .nw-foot__cta.hero-cta.hero-cta--glass:hover .hero-cta__chev,
+.niusn-what .nw-foot__cta.hero-cta.hero-cta--glass:focus-visible .hero-cta__chev {
+  color: var(--tk-ruby) !important;
+}
+
+/* Brief press: consistent dip on coarse + fine (touch-action: manipulation avoids double-tap zoom). */
+.niusn-what .nw-foot__cta.hero-cta.hero-cta--glass:active .hero-cta__inner {
+  transform: translate3d(0, 2px, 0) scale(0.985) !important;
+  transition-duration: 0.1s !important;
+}
+
+.niusn-what .nw-foot__cta.hero-cta.hero-cta--glass:active .hero-cta__enter-hint {
+  transition-duration: 0.1s !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .niusn-what .nw-foot__cta.hero-cta.hero-cta--glass .hero-cta__inner::before {
+    animation: none !important;
+    transform: none !important;
+    background-position: 50% 50%, 40% 60% !important;
+  }
+  .niusn-what .nw-foot__cta.hero-cta.hero-cta--glass,
+  .niusn-what .nw-foot__cta.hero-cta.hero-cta--glass .hero-cta__inner,
+  .niusn-what .nw-foot__cta.hero-cta.hero-cta--glass .hero-cta__inner::before,
+  .niusn-what .nw-foot__cta.hero-cta.hero-cta--glass .hero-cta__inner::after,
+  .niusn-what .nw-foot__cta.hero-cta.hero-cta--glass .hero-cta__enter-hint,
+  .niusn-what .nw-foot__cta.hero-cta.hero-cta--glass .hero-cta__chev,
+  .niusn-what .nw-foot__cta.hero-cta.hero-cta--glass .hero-cta__label {
+    transition-duration: 0.12s !important;
+  }
+  .niusn-what .nw-foot__cta.hero-cta.hero-cta--glass:hover .hero-cta__inner,
+  .niusn-what .nw-foot__cta.hero-cta.hero-cta--glass:focus-visible .hero-cta__inner,
+  .niusn-what .nw-foot__cta.hero-cta.hero-cta--glass:active .hero-cta__inner {
+    transform: none !important;
+  }
+  .niusn-what .nw-foot__cta.hero-cta.hero-cta--glass:hover .hero-cta__enter-hint,
+  .niusn-what .nw-foot__cta.hero-cta.hero-cta--glass:focus-visible .hero-cta__enter-hint,
+  .niusn-what .nw-foot__cta.hero-cta.hero-cta--glass:active .hero-cta__enter-hint {
+    transform: none !important;
+  }
+}
+
+.niusn-what .nw-foot__cta .hero-cta__label {
+  max-width: none;
+  text-align: center;
+}

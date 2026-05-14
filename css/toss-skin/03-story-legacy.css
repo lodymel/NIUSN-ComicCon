@@ -1,0 +1,135 @@
+/* TOSS skin — partial (order preserved). */
+
+/* ============================================================
+   3 · STORY (featured card + chip rail) — legacy block kept
+       below; v2 landing currently does not render it but the
+       styles remain so any future re-introduction is zero-CSS.
+============================================================ */
+
+.tk-story { padding-top: 140px; }
+.tk-story__head { text-align: center; margin-bottom: 48px; }
+.tk-story__head .tk-h2 { margin-top: 14px; }
+
+.tk-story__card {
+  background: #fff;
+  border-radius: var(--tk-radius-xl);
+  box-shadow: var(--tk-shadow-soft);
+  padding: 56px 56px;
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) 2fr;
+  gap: 56px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.7);
+}
+.tk-story__card::before {
+  /* soft corner bloom */
+  content: "";
+  position: absolute;
+  width: 280px; height: 280px;
+  right: -90px; top: -90px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--tk-butter) 0%, transparent 65%);
+  filter: blur(20px);
+  opacity: 0.55;
+  pointer-events: none;
+}
+.tk-story__card-title {
+  font-family: var(--font-tk-display);
+  font-weight: 500;
+  font-size: clamp(28px, 3.2vw, 40px);
+  line-height: 1.05;
+  color: var(--tk-ink);
+  position: relative;
+}
+.tk-story__card-body {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--tk-graphite);
+  max-width: 56ch;
+  position: relative;
+}
+.tk-story__card-stamp {
+  margin-top: 20px;
+  font-family: var(--font-tk-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--tk-mist);
+}
+
+@media (max-width: 880px) {
+  .tk-story__card { grid-template-columns: 1fr; padding: 36px 28px; gap: 24px; }
+}
+
+/* Chip rail — toss "step" navigator */
+.tk-chips {
+  display: flex; gap: 12px;
+  margin: 32px -16px 0;
+  padding: 0 16px 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.tk-chips::-webkit-scrollbar { display: none; }
+.tk-chip {
+  flex: 0 0 auto;
+  min-width: 200px;
+  background: var(--tk-blush-soft);
+  color: var(--tk-blush-deep);
+  border: none;
+  border-radius: var(--tk-radius-md);
+  padding: 18px 22px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-family: var(--font-tk-display);
+  font-size: 17px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform .25s, box-shadow .25s, background .25s, color .25s;
+  scroll-snap-align: start;
+}
+.tk-chip:hover { transform: translateY(-2px); }
+.tk-chip[aria-pressed="true"] {
+  background: var(--tk-blush-deep);
+  color: #fff;
+  box-shadow: 0 8px 22px rgba(232, 155, 173, 0.45);
+}
+.tk-chip__icon {
+  width: 28px; height: 28px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.55);
+  color: var(--tk-blush-deep);
+}
+.tk-chip[aria-pressed="true"] .tk-chip__icon {
+  background: rgba(255, 255, 255, 0.22);
+  color: #fff;
+}
+.tk-chip__icon svg { width: 14px; height: 14px; }
+
+.tk-chip-controls {
+  display: flex; gap: 8px; justify-content: center;
+  margin-top: 12px;
+}
+.tk-chip-arrow {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--tk-line);
+  background: #fff;
+  color: var(--tk-graphite);
+  cursor: pointer;
+  display: grid; place-items: center;
+  transition: background .25s, color .25s, border-color .25s;
+}
+.tk-chip-arrow:hover {
+  background: var(--tk-blush-soft);
+  color: var(--tk-blush-deep);
+  border-color: transparent;
+}
+.tk-chip-arrow svg { width: 14px; height: 14px; }
+

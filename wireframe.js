@@ -277,7 +277,7 @@
     return sel ? navEl.querySelector(sel) : null;
   }
 
-  /** `#site-nav` 아래쪽과 `.header-inner` 바닥(= 스크림 하단 보더) 사이 간격 — 활성 라인을 내려 겹침 */
+  /** Gap below `#site-nav`; active line sits on scrim bottom edge */
   function navLineFlushBottomPx() {
     if (!headerInner || !nav) return 0;
     const innerRect = headerInner.getBoundingClientRect();
@@ -515,7 +515,7 @@
         contactHeadlines.classList.add("is-revealed", "wwd-copy--was-in-view");
       }
     } else {
-      /* 한 번의 뷰포트 판정으로 태그·카피·폼·헤드라인(단어 reveal) 모두 WWD와 동일하게 in/out */
+      /* Single viewport observer drives WWD-style in/out for tags, copy, form, headlines */
       const ioContactReveal = new IntersectionObserver(
         (entries) => {
           const entry = entries[0];
@@ -558,7 +558,7 @@
     contactFormNaya.addEventListener("submit", (e) => {
       e.preventDefault();
       if (!contactFormNaya.checkValidity() || contactSubmitNaya.disabled) return;
-      /* 와이어프레임: 백엔드 없음 — 추후 Formspree / API 연동 시 이 핸들러만 교체 */
+      /* Static site: replace this handler if you add Formspree/API */
       contactFormNaya.reset();
       syncContactSubmitNayaEnabled();
     });

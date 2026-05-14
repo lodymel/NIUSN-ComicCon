@@ -1,0 +1,31 @@
+# Verifies the Vite map bundle builds (same as local `npm run build`).
+# Deploy stays in pages.yml; this job is a fast gate for PRs and main/master pushes.
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: uploads/niusn-map/package-lock.json
+
+      - name: Build embedded map (Vite)
+        run: npm run build

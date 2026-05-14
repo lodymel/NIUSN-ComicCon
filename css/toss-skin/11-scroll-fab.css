@@ -1,0 +1,94 @@
+/* TOSS skin — partial (order preserved). */
+
+/* ============================================================
+   Scroll-to-top FAB — niusn-landing.vercel.app structure;
+   retinted to cotton glass + blush/ruby progress (touch-safe).
+============================================================ */
+.scroll-top-fab {
+  touch-action: manipulation;
+  border: 1px solid rgba(232, 155, 173, 0.48) !important;
+  color: var(--tk-ink) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(155%) !important;
+  backdrop-filter: blur(18px) saturate(155%) !important;
+  background:
+    linear-gradient(
+      148deg,
+      rgba(255, 246, 244, 0.9) 0%,
+      rgba(255, 251, 242, 0.78) 42%,
+      rgba(244, 200, 210, 0.42) 100%
+    ) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.78),
+    inset 0 -1px 0 rgba(217, 74, 107, 0.1),
+    0 12px 36px rgba(217, 74, 107, 0.2),
+    0 2px 10px rgba(184, 130, 145, 0.14),
+    0 0 0 1px rgba(232, 155, 173, 0.16) !important;
+}
+
+.scroll-top-fab:hover {
+  border-color: rgba(217, 74, 107, 0.45) !important;
+  background:
+    linear-gradient(
+      148deg,
+      rgba(255, 255, 255, 0.94) 0%,
+      rgba(255, 246, 244, 0.88) 40%,
+      rgba(232, 155, 173, 0.38) 100%
+    ) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.88),
+    inset 0 -1px 0 rgba(217, 74, 107, 0.08),
+    0 16px 44px rgba(217, 74, 107, 0.26),
+    0 2px 12px rgba(184, 130, 145, 0.18),
+    0 0 0 1px rgba(232, 155, 173, 0.26) !important;
+}
+
+.scroll-top-fab__ring-track {
+  stroke: rgba(232, 155, 173, 0.42) !important;
+}
+
+.scroll-top-fab__ring-prog {
+  stroke: var(--tk-blush-deep, var(--color-blush-deep)) !important;
+}
+
+.scroll-top-fab:focus-visible {
+  outline: 2px solid rgba(217, 74, 107, 0.5) !important;
+  outline-offset: 3px;
+}
+
+.scroll-top-fab__hover {
+  background: var(--tk-cream) !important;
+}
+
+.scroll-top-fab:hover .scroll-top-fab__hover {
+  opacity: 0.12 !important;
+}
+
+.scroll-top-fab:active .scroll-top-fab__hover {
+  opacity: 0.2 !important;
+}
+
+@media (max-width: 480px) {
+  .scroll-top-fab {
+    width: 3.05rem;
+    height: 3.05rem;
+    right: max(0.7rem, calc(env(safe-area-inset-right, 0px) + 0.3rem));
+    left: auto;
+    bottom: calc(0.85rem + env(safe-area-inset-bottom, 0px) + var(--footer-marquee-inner-h));
+  }
+
+  .scroll-top-fab__arrow {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* ── Reveal anim ─────────────────────────────────────────── */
+@keyframes tk-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.tk-rise { animation: tk-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.tk-rise[data-delay="1"] { animation-delay: 0.08s; }
+.tk-rise[data-delay="2"] { animation-delay: 0.16s; }
+.tk-rise[data-delay="3"] { animation-delay: 0.24s; }
+

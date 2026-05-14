@@ -1,7 +1,4 @@
-/**
- * UI strings: ko / en / zh-Hans / zh-Hant
- * Proxima Nova는 Adobe Fonts 키트 연동 시 로드 (index.html 주석 참고).
- */
+/** UI strings: ko / en / zh-Hans / zh-Hant. Proxima Nova: wire Adobe Fonts kit in index.html. */
 (function () {
   const STORAGE_KEY = "niusn-lang";
 

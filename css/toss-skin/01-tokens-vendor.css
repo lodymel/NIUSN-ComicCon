@@ -1,0 +1,884 @@
+/* TOSS skin — partial (order preserved). */
+
+/* ============================================================
+   TOSS-SKIN.CSS  ·  v1
+   Reskin index v2 in a toss.im style, painted in the Plush
+   Pastel palette. Header (.site-header) + footer marquee are
+   left untouched so the brand nav interaction is preserved.
+============================================================ */
+
+:root {
+  --tk-blush:        #F4C8D2;
+  --tk-blush-deep:   #E89BAD;
+  --tk-blush-soft:   #FBE4EB;
+  --tk-cotton:       #FFF6F4;
+  --tk-cream:        #FFFBF2;
+  --tk-mint:         #C8E5D4;
+  --tk-mint-deep:    #9CCFB4;
+  --tk-sky:          #B9D4ED;
+  --tk-sky-deep:     #8FB6D9;
+  --tk-butter:       #F5E08C;
+  --tk-butter-deep:  #E6C95C;
+  --tk-lilac:        #D9C9E8;
+  --tk-ruby:         #D94A6B;
+  --tk-ink:          #3A2A30;
+  --tk-graphite:     #5C5560;
+  --tk-mist:         #B8AFB4;
+  --tk-line:         rgba(58, 42, 48, 0.10);
+
+  --tk-radius-sm: 12px;
+  --tk-radius-md: 22px;
+  --tk-radius-lg: 36px;
+  --tk-radius-xl: 48px;
+  --tk-pill: 999px;
+
+  --tk-shadow-soft:  0 2px 10px rgba(232, 155, 173, 0.10), 0 16px 36px rgba(184, 130, 145, 0.08);
+  --tk-shadow-plush: 0 4px 16px rgba(184, 130, 145, 0.18), 0 28px 70px rgba(184, 130, 145, 0.10);
+
+  /* Headline = Anton (condensed display).
+   * Display  = Fraunces (italic / serif accents).
+   * Body     = DM Sans. Mono = JetBrains.
+   * Mixing rule: Anton carries the poster-scale "shout" moments
+   * (hero wordmark, section H2, practice titles, contact). Fraunces
+   * stays as the italic refrain (kicker, lede, numerals, eyebrows). */
+  --font-tk-headline: 'Anton', 'Bebas Neue', 'Oswald', Impact, sans-serif;
+  --font-tk-display:  'Fraunces', 'Instrument Serif', Georgia, serif;
+  --font-tk-body:     'DM Sans', 'Pretendard', system-ui, sans-serif;
+  --font-tk-mono:     'JetBrains Mono', 'IBM Plex Mono', monospace;
+
+  /* Pillar-card illustration geometry (.niusn-inner 1240 + grid gaps + card
+     horizontal padding). Contact reuses these so editorial art pixels match
+     the “What we do” cards; plain `78% / 70%` alone misaligns across columns. */
+  --nw-pillar-art-slot-3c: calc((min(1240px, 100vw - 80px) - 48px) / 3 - 64px);
+  --nw-pillar-art-slot-1c: calc(min(1240px, 100vw - 80px) - 64px);
+
+  /* Text selection — ruby fill + white text (drag-to-highlight). */
+  --selection-bg: var(--tk-ruby);
+  --selection-color: #fff;
+}
+@media (max-width: 880px) {
+  :root {
+    --nw-pillar-art-slot-1c: calc(min(1240px, 100vw - 44px) - 64px);
+  }
+}
+
+/* ── lang=ko typography (KR product-style stacks; keep Latin fonts as-is) */
+
+html:lang(ko) {
+  --font-tk-headline: "Anton", "Bebas Neue", "Oswald", Impact,
+    "Pretendard", Pretendard, "Apple SD Gothic Neo", "Nanum Gothic", "Noto Sans KR",
+    -apple-system, BlinkMacSystemFont, "Malgun Gothic", sans-serif;
+  --font-tk-display: "Fraunces", "Instrument Serif", Georgia, serif,
+    "Pretendard", Pretendard, "Apple SD Gothic Neo", "Nanum Gothic", "Noto Sans KR",
+    -apple-system, "Malgun Gothic", serif;
+  --font-tk-body: "DM Sans",
+    "Pretendard", Pretendard, "Nanum Gothic", "Noto Sans KR",
+    system-ui, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --font-tk-mono: "JetBrains Mono", "IBM Plex Mono", ui-monospace,
+    "Pretendard", Pretendard, "Noto Sans KR", monospace;
+}
+
+html:lang(ko) .niusn-what {
+  --nw-font-display: "Fraunces", Georgia, serif,
+    "Pretendard", Pretendard, "Noto Sans KR", serif;
+  --nw-font-body: "DM Sans", "Pretendard", Pretendard, "Nanum Gothic", "Noto Sans KR", system-ui, sans-serif;
+  --nw-font-mono: "JetBrains Mono", "Pretendard", Pretendard, monospace;
+}
+
+html:lang(ko) body {
+  word-break: keep-all;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Portal-style body rhythm (KR UI) */
+html:lang(ko) .tk-booth__lede,
+html:lang(ko) .tk-contact__lede,
+html:lang(ko) .niusn-what .nw-lede,
+html:lang(ko) .niusn-what .nw-card > p {
+  line-height: 1.72;
+  letter-spacing: 0;
+}
+
+html:lang(ko) .tk-field input,
+html:lang(ko) .tk-field textarea {
+  line-height: 1.55;
+}
+
+html:lang(ko) .tk-hero__when {
+  letter-spacing: 0;
+}
+
+/* Eyebrows: relax mono tracking when mixed with Hangul */
+html:lang(ko) .tk-eyebrow,
+html:lang(ko) .niusn-what .nw-eyebrow {
+  letter-spacing: 0.04em;
+}
+
+html:lang(ko) .tk-field label {
+  letter-spacing: 0.06em;
+}
+
+/* Nav: mono for Latin labels; Noto for Hangul */
+html:lang(ko) .nav-link,
+html:lang(ko) .nav-cta {
+  font-family: "JetBrains Mono", "IBM Plex Mono", ui-monospace, "Noto Sans KR",
+    "Pretendard", monospace;
+  letter-spacing: 0.06em;
+}
+
+/* Lang switcher: labels are ASCII — keep mono + tracking 0.22em */
+html:lang(ko) .sound-block__caption {
+  font-family: "JetBrains Mono", "IBM Plex Mono", "Noto Sans KR", "Pretendard", ui-monospace, monospace;
+  letter-spacing: 0.04em;
+}
+
+/* em in KR titles: same sans stack as headline; bump weight for readability */
+html:lang(ko) .niusn-what .nw-title em,
+html:lang(ko) .tk-booth__title em,
+html:lang(ko) .tk-contact__title em {
+  font-family: var(--font-tk-headline);
+  font-style: normal;
+  font-weight: 600;
+  font-variation-settings: normal;
+}
+
+/* Pillar card h3: body stack; em = weight only */
+html:lang(ko) .niusn-what .nw-card h3 {
+  font-family: var(--font-tk-body, var(--nw-font-body));
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+html:lang(ko) .niusn-what .nw-card h3 em {
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 700;
+  font-variation-settings: normal;
+}
+
+/* Desktop: Booth / WWD / Contact H2 one line; spacing from headstack gap */
+@media (min-width: 881px) {
+  .tk-booth__head {
+    max-width: min(92vw, 900px);
+  }
+  .niusn-what .nw-head {
+    max-width: min(92vw, 920px);
+  }
+  .niusn-what .nw-title,
+  .tk-booth__title,
+  .tk-contact__title {
+    white-space: nowrap;
+    line-height: 1.15;
+    font-size: clamp(20px, 2.9vw, 52px);
+    letter-spacing: -0.035em;
+  }
+}
+
+@media (max-width: 880px) {
+  .niusn-what .nw-title,
+  .tk-booth__title,
+  .tk-contact__title {
+    white-space: normal;
+    line-height: 1.22;
+  }
+}
+
+/* Wide view: pillar card titles one line (3-col) */
+@media (min-width: 1320px) {
+  html:lang(ko) .niusn-what .nw-card h3 {
+    max-width: none;
+    white-space: nowrap;
+    font-size: clamp(17px, 1.1vw, 21px);
+    line-height: 1.22;
+  }
+}
+
+/* Higher specificity selection colors for pastel skin */
+::selection {
+  background-color: var(--tk-ruby) !important;
+  color: #fff !important;
+  text-shadow: none;
+}
+::-moz-selection {
+  background-color: var(--tk-ruby) !important;
+  color: #fff !important;
+  text-shadow: none;
+}
+
+/* ── Page paint ─────────────────────────────────────────── */
+html.is-loaded body,
+body {
+  background: var(--tk-cotton) !important;
+  color: var(--tk-ink);
+  font-family: var(--font-tk-body);
+}
+
+/* Kill the dark brand atmosphere — incompatible with pastel skin */
+.brand-bg-canvas,
+.brand-atmosphere { display: none !important; }
+
+/* ── Scrollbar: main pink on cotton ─────────────────────── */
+html {
+  scrollbar-color: var(--tk-blush-deep) var(--tk-blush-soft) !important;
+}
+html::-webkit-scrollbar-track {
+  background: var(--tk-blush-soft) !important;
+}
+html::-webkit-scrollbar-thumb {
+  background: var(--tk-blush-deep) !important;
+  border: 1px solid var(--tk-blush-soft) !important;
+}
+html::-webkit-scrollbar-thumb:hover {
+  background: var(--tk-ruby) !important;
+}
+html::-webkit-scrollbar-corner {
+  background: var(--tk-blush-soft) !important;
+}
+
+/* Subtle film grain so pastels read painterly, not flat */
+body::before {
+  content: "";
+  position: fixed; inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.32;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 0.6  0 0 0 0 0.4  0 0 0 0 0.45  0 0 0 0.05 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* ── Header re-tint: pink tone over the pastel hero ─────── */
+/* Keep all interactions; recolor the scrim to a blush gradient
+ * with subtle backdrop blur so the dark nav reads pink without
+ * losing legibility of the white logo + links on top. */
+.site-header .header-scrim {
+  background: linear-gradient(180deg,
+    rgba(217, 74, 107, 0.82) 0%,
+    rgba(232, 155, 173, 0.68) 100%) !important;
+  backdrop-filter: blur(14px) saturate(140%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(140%) !important;
+}
+.site-header.is-scrolled .header-scrim {
+  background: linear-gradient(180deg,
+    rgba(217, 74, 107, 0.92) 0%,
+    rgba(232, 155, 173, 0.82) 100%) !important;
+  box-shadow: 0 6px 24px rgba(217, 74, 107, 0.18) !important;
+}
+/* Nav links + logo stay legible on the pink scrim */
+.site-header,
+.site-header a,
+.site-header .nav-link,
+.site-header .logo,
+.site-header .nav-brand {
+  color: #FFFBF2 !important;
+}
+.site-header .nav-link:hover {
+  color: #FFF6F4 !important;
+  text-shadow: 0 0 12px rgba(255, 251, 242, 0.45);
+}
+
+/* Language trigger (EN) — base sheet uses ~45% alpha lavender on the
+ * mono label; on the blush header it should read at full strength
+ * like the other nav items. Chevron shares currentColor but also had
+ * opacity: 0.65 — lift to 1 so the control matches. */
+.site-header .lang-dropdown:not(.open):not(.is-open) .lang-current {
+  color: #FFFBF2 !important;
+}
+.site-header .lang-dropdown:not(.open):not(.is-open) .lang-chevron {
+  opacity: 1 !important;
+}
+
+/* Closed trigger hover — base `.lang-current` colour uses higher specificity
+ * than `.lang-current:hover`, so ink + frost must repeat here or EN stays cream. */
+.site-header .lang-dropdown:not(.open):not(.is-open) .lang-current:hover {
+  color: var(--tk-ink) !important;
+  background: rgba(255, 251, 242, 0.88) !important;
+  border-color: rgba(232, 155, 173, 0.42) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(150%) !important;
+  backdrop-filter: blur(16px) saturate(150%) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.75),
+    0 8px 28px rgba(217, 74, 107, 0.18),
+    0 2px 10px rgba(184, 130, 145, 0.12) !important;
+  transform: translateY(-1px);
+}
+.site-header .lang-dropdown:not(.open):not(.is-open) .lang-current:hover .lang-chevron {
+  color: inherit !important;
+  opacity: 1 !important;
+}
+
+/* Language menu — same cotton/blush frosting as `.site-nav` overlay
+ * (≤768): ink labels on glass so open desktop matches mobile sheet. */
+.site-header .lang-menu {
+  color: var(--tk-ink) !important;
+  background:
+    linear-gradient(
+      168deg,
+      rgba(255, 251, 242, 0.78) 0%,
+      rgba(255, 246, 244, 0.62) 52%,
+      rgba(251, 236, 240, 0.55) 100%
+    ) !important;
+  border: 1px solid rgba(255, 251, 242, 0.5) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(155%) !important;
+  backdrop-filter: blur(20px) saturate(155%) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.55),
+    inset 0 -1px 0 rgba(217, 74, 107, 0.06),
+    0 16px 42px rgba(58, 18, 32, 0.14),
+    0 4px 14px rgba(217, 74, 107, 0.12) !important;
+}
+
+.site-header .lang-current:hover {
+  color: var(--tk-ink) !important;
+  background: rgba(255, 251, 242, 0.88) !important;
+  border-color: rgba(232, 155, 173, 0.42) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(150%) !important;
+  backdrop-filter: blur(16px) saturate(150%) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.75),
+    0 8px 28px rgba(217, 74, 107, 0.18),
+    0 2px 10px rgba(184, 130, 145, 0.12) !important;
+  transform: translateY(-1px);
+}
+
+/* Open trigger — frost above blush; hover lifts to denser frost + ink label so EN ≠ background. */
+.site-header .lang-dropdown.open .lang-current,
+.site-header .lang-dropdown.is-open .lang-current {
+  color: #FFFBF2 !important;
+  background:
+    linear-gradient(168deg, rgba(255, 251, 242, 0.22) 0%, rgba(255, 246, 244, 0.1) 100%) !important;
+  border: 1px solid rgba(255, 251, 242, 0.38) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(155%) !important;
+  backdrop-filter: blur(20px) saturate(155%) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 251, 242, 0.28),
+    0 8px 28px rgba(58, 18, 32, 0.14),
+    0 4px 12px rgba(217, 74, 107, 0.14),
+    0 0 0 1px rgba(255, 251, 242, 0.12) !important;
+  transform: none;
+}
+
+.site-header .lang-dropdown.open .lang-current:hover,
+.site-header .lang-dropdown.is-open .lang-current:hover {
+  color: var(--tk-ink) !important;
+  background:
+    linear-gradient(
+      168deg,
+      rgba(255, 251, 242, 0.88) 0%,
+      rgba(255, 246, 244, 0.72) 100%
+    ) !important;
+  border: 1px solid rgba(232, 155, 173, 0.38) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.75),
+    0 12px 32px rgba(58, 18, 32, 0.12),
+    0 4px 14px rgba(217, 74, 107, 0.12),
+    0 0 0 1px rgba(255, 251, 242, 0.22) !important;
+  transform: none;
+}
+
+.site-header .lang-dropdown.open .lang-current:hover .lang-chevron,
+.site-header .lang-dropdown.is-open .lang-current:hover .lang-chevron {
+  color: inherit !important;
+  opacity: 1 !important;
+}
+
+.site-header .lang-dropdown.open .lang-chevron,
+.site-header .lang-dropdown.is-open .lang-chevron {
+  opacity: 1 !important;
+}
+
+.site-header.is-scrolled .lang-dropdown:not(.open):not(.is-open) .lang-current:hover {
+  color: var(--tk-ink) !important;
+  background: rgba(255, 251, 242, 0.9) !important;
+  border-color: rgba(232, 155, 173, 0.45) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(150%) !important;
+  backdrop-filter: blur(16px) saturate(150%) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.78),
+    0 8px 26px rgba(217, 74, 107, 0.2),
+    0 2px 8px rgba(58, 42, 48, 0.08) !important;
+}
+
+.site-header .lang-option {
+  color: var(--tk-ink) !important;
+  background: transparent !important;
+}
+
+.site-header .lang-option:hover,
+.site-header .lang-option:active {
+  color: var(--tk-cream) !important;
+  background: linear-gradient(
+    165deg,
+    #de4f6f 0%,
+    var(--tk-ruby) 45%,
+    #c73e5c 100%
+  ) !important;
+  border-color: rgba(217, 74, 107, 0.45) !important;
+  text-shadow: none !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    0 6px 22px rgba(217, 74, 107, 0.28),
+    0 1px 4px rgba(58, 18, 32, 0.12) !important;
+}
+
+.site-header .lang-option.active,
+.site-header .lang-option.is-active {
+  color: var(--tk-ruby) !important;
+  background: rgba(232, 155, 173, 0.28) !important;
+  border-color: rgba(217, 74, 107, 0.22) !important;
+}
+
+.site-header .lang-option:focus-visible {
+  outline: none !important;
+  color: var(--tk-ink) !important;
+  background: rgba(255, 251, 242, 0.55) !important;
+  box-shadow: 0 0 0 2px rgba(217, 74, 107, 0.42) !important;
+}
+
+.site-header .lang-current:focus-visible {
+  outline: 2px solid rgba(217, 74, 107, 0.5) !important;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .site-header .lang-menu {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: var(--tk-cream) !important;
+    border-color: rgba(232, 155, 173, 0.55) !important;
+  }
+  .site-header .lang-dropdown.open .lang-current,
+  .site-header .lang-dropdown.is-open .lang-current {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(255, 251, 242, 0.32) !important;
+    border-color: rgba(255, 251, 242, 0.45) !important;
+    box-shadow: inset 0 1px 0 rgba(255, 251, 242, 0.35),
+      0 4px 16px rgba(58, 18, 32, 0.12) !important;
+  }
+  .site-header .lang-dropdown.open .lang-current:hover,
+  .site-header .lang-dropdown.is-open .lang-current:hover {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    color: var(--tk-ink) !important;
+    background: var(--tk-cream) !important;
+    border-color: rgba(232, 155, 173, 0.45) !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.65),
+      0 6px 20px rgba(58, 18, 32, 0.1) !important;
+  }
+  .site-header .lang-dropdown:not(.open):not(.is-open) .lang-current:hover {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+}
+
+/* ── Active nav link — cream + ruby halo ─────────────────
+ * Default nav links sit at cream #FFFBF2. The active state
+ * needs to be visibly "locked in" without breaking the
+ * cream-on-blush rhythm — so we lift the text to pure
+ * white and pair it with a two-stop glow: a cream halo for
+ * legibility + a ruby bloom that grounds the link in the
+ * brand palette. Same vocabulary as the hover state, but
+ * always-on. */
+.site-header .nav-link.is-active,
+.site-header .nav-link[aria-current="true"],
+.site-header .nav-link[aria-current="page"] {
+  color: #FFFFFF !important;
+  text-shadow:
+    0 0 14px rgba(255, 246, 244, 0.6),
+    0 0 26px rgba(217, 74, 107, 0.38) !important;
+}
+
+/* ── Active-section underline — repaint the radiant rail ─
+ * The base `.nav-active-line` is a soft-glow gradient bar
+ * painted in the dark-mode lilac/violet/cyan tokens
+ * (--nav-line-1/2/3). On the blush header those tones
+ * feel foreign — almost neon. Replace the gradient with
+ * the design system's pink axis (cotton → blush → ruby)
+ * and swap the cyan/lilac glow shadows for cream + ruby.
+ * Geometry, animation, and z-index from styles.css carry
+ * over unchanged — this is a pure repaint. */
+.site-header .nav-active-line {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 246, 244, 0.40) 12%,
+    rgba(255, 251, 242, 0.95) 38%,
+    rgba(232, 155, 173, 0.95) 55%,
+    rgba(217, 74, 107, 0.95) 72%,
+    rgba(255, 246, 244, 0.35) 88%,
+    transparent 100%
+  ) !important;
+  box-shadow:
+    0 0 0 1px rgba(255, 251, 242, 0.32),
+    0 0 10px rgba(255, 246, 244, 0.55),
+    0 0 22px rgba(217, 74, 107, 0.45),
+    0 -2px 12px rgba(232, 155, 173, 0.22) !important;
+}
+/* ── Header CTA — match the reference site's text-link form ─
+ * The deployed reference (niusn-landing.vercel.app) keeps the
+ * CTA as a transparent text link: "› › CONTACT" where the two
+ * chevrons nudge rightward on a loop. The toss-skin originally
+ * inverted it into a cream pill, which broke the chevron
+ * animation (the hint inherits a near-white color from the
+ * base styles → invisible on cream).
+ *
+ * Restore the text-link form; retint cream-on-blush to live
+ * natively on the new pink-gradient header. The plush button
+ * style is reserved for true CTAs (#contact submit etc.) — the
+ * nav CTA is a wayfinder, not a primary action surface.
+ */
+.site-header .nav-cta {
+  background: transparent !important;
+  border: 0 !important;
+  padding: 0.42rem 0.18rem !important;
+  color: #FFFBF2 !important;
+  text-shadow: 0 0 14px rgba(58, 18, 32, 0.18);
+}
+/* Chevron hint — match nav link cream, slightly recessed so
+ * the animated nudge reads as a secondary motion accent, not
+ * a competing label. */
+.site-header .nav-cta__hint {
+  color: rgba(255, 251, 242, 0.82) !important;
+}
+.site-header .nav-cta__chev {
+  color: rgba(255, 251, 242, 0.82) !important;
+  opacity: 1;
+}
+/* Hover/focus — brighten the CTA + cream-glow the chevrons,
+ * paired with a soft cream halo for the affordance moment. */
+.site-header .nav-cta:hover,
+.site-header .nav-cta:focus-visible,
+.site-header .nav-cta:active,
+.site-header.is-scrolled .nav-cta:hover,
+.site-header.is-scrolled .nav-cta:active {
+  color: #FFFFFF !important;
+  text-shadow:
+    0 0 18px rgba(255, 244, 232, 0.5),
+    0 0 28px rgba(217, 74, 107, 0.28) !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.site-header .nav-cta:hover .nav-cta__hint,
+.site-header .nav-cta:focus-visible .nav-cta__hint,
+.site-header .nav-cta:active .nav-cta__hint,
+.site-header .nav-cta:hover .nav-cta__chev,
+.site-header .nav-cta:focus-visible .nav-cta__chev,
+.site-header .nav-cta:active .nav-cta__chev {
+  color: #FFFFFF !important;
+}
+/* Active-section state — same vocabulary as `.nav-link.is-active`: white + cream/ruby glow (spy script toggles Contact). */
+.site-header .nav-cta.is-active,
+.site-header .nav-cta.is-active .nav-cta__hint,
+.site-header .nav-cta.is-active .nav-cta__chev {
+  color: #FFFFFF !important;
+  text-shadow:
+    0 0 14px rgba(255, 246, 244, 0.6),
+    0 0 26px rgba(217, 74, 107, 0.38) !important;
+}
+
+.site-header .nav-cta.is-active .nav-cta__chev {
+  opacity: 1 !important;
+  animation: none !important;
+  transform: none !important;
+}
+/* Focus ring tuned to the cream/blush palette, replacing the
+ * dark-mode lilac outline from the base styles. */
+.site-header .nav-cta:focus-visible {
+  outline: 2px solid rgba(255, 251, 242, 0.7) !important;
+  outline-offset: 4px;
+}
+
+/* Generic header pill buttons (e.g. language switcher) keep
+ * the cream-on-blush inversion — they're functional buttons,
+ * distinct from the wayfinding nav-cta. */
+.site-header .btn {
+  background: #FFFBF2 !important;
+  color: var(--tk-ruby) !important;
+  border-color: rgba(255, 251, 242, 0.35) !important;
+}
+.site-header .btn:hover {
+  background: #FFF6F4 !important;
+  color: var(--tk-ink) !important;
+}
+
+/* ── Mobile / tablet hamburger overlay — pink world ──────
+ * When the burger opens on ≤768px the base styles paint the
+ * full-screen sheet in cold near-black with a cyan accent —
+ * jarring against the rest of the blush design system.
+ * Repaint the sheet as a continuation of the header gradient
+ * (ruby → blush-deep → blush) so opening the menu reads as a
+ * pulldown of the header itself, not a separate dark surface.
+ *
+ * Cream text legibility carries over from the header recolor
+ * above — we stay in the saturated pink range top-to-bottom
+ * instead of fading to cotton so links never sit on cream.
+ * Inner glass cards (dropdown / lang-menu) get a cream-tinted
+ * panel with cream borders, and the hamburger lines themselves
+ * lift to cream so they read on the blush scrim. */
+@media (max-width: 768px) {
+  .site-nav {
+    background:
+      radial-gradient(120% 70% at 100% 0%, rgba(255, 246, 244, 0.22) 0%, transparent 55%),
+      radial-gradient(140% 90% at 0% 100%, rgba(255, 251, 242, 0.18) 0%, transparent 60%),
+      linear-gradient(180deg,
+        rgba(217, 74, 107, 0.94) 0%,
+        rgba(232, 155, 173, 0.94) 55%,
+        rgba(244, 200, 210, 0.96) 100%) !important;
+    border: 1px solid rgba(255, 251, 242, 0.24) !important;
+    border-top: 1px solid rgba(255, 251, 242, 0.42) !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 251, 242, 0.22),
+      inset 0 -1px 0 rgba(58, 18, 32, 0.12),
+      0 28px 90px rgba(58, 18, 32, 0.28),
+      0 0 80px rgba(217, 74, 107, 0.22) !important;
+  }
+
+  .site-nav .nav-link,
+  .site-nav .nav-trigger,
+  .site-nav .lang-current,
+  .site-nav .sound-block,
+  .site-nav .sound-block * {
+    color: #FFFBF2 !important;
+  }
+
+  /* Lang list sits on frost, not directly on ruby — ink labels match desktop menu. */
+  .site-nav .lang-menu .lang-option {
+    color: var(--tk-ink) !important;
+  }
+
+  .site-nav .lang-menu .lang-option:hover,
+  .site-nav .lang-menu .lang-option:active {
+    color: var(--tk-cream) !important;
+  }
+
+  .site-nav .lang-menu .lang-option.active,
+  .site-nav .lang-menu .lang-option.is-active {
+    color: var(--tk-ruby) !important;
+    background: rgba(255, 255, 255, 0.42) !important;
+  }
+
+  .site-nav .nav-link:hover,
+  .site-nav .nav-trigger:hover,
+  .site-nav .nav-link.is-active,
+  .site-nav .nav-link[aria-current="true"],
+  .site-nav .nav-link[aria-current="page"],
+  .site-nav .nav-cta.is-active {
+    color: #FFFFFF !important;
+    text-shadow:
+      0 0 10px rgba(255, 246, 244, 0.48),
+      0 0 20px rgba(217, 74, 107, 0.28) !important;
+  }
+
+  .site-nav .nav-cta.is-active .nav-cta__chev {
+    opacity: 1 !important;
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .site-nav .dropdown {
+    background:
+      linear-gradient(168deg, rgba(255, 251, 242, 0.22) 0%, rgba(255, 246, 244, 0.10) 100%) !important;
+    border: 1px solid rgba(255, 251, 242, 0.28) !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 251, 242, 0.18),
+      0 12px 32px rgba(58, 18, 32, 0.18) !important;
+  }
+
+  .site-nav .lang-menu {
+    background:
+      linear-gradient(
+        168deg,
+        rgba(255, 251, 242, 0.78) 0%,
+        rgba(255, 246, 244, 0.62) 52%,
+        rgba(251, 236, 240, 0.55) 100%
+      ) !important;
+    border: 1px solid rgba(255, 251, 242, 0.5) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(155%) !important;
+    backdrop-filter: blur(20px) saturate(155%) !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.55),
+      inset 0 -1px 0 rgba(217, 74, 107, 0.06),
+      0 16px 42px rgba(58, 18, 32, 0.14),
+      0 4px 14px rgba(217, 74, 107, 0.12) !important;
+  }
+
+  /* Trigger hover on pink sheet: override cream-on-cream (.site-nav .lang-current colour). */
+  .site-nav .lang-dropdown:not(.open):not(.is-open) .lang-current:hover {
+    color: var(--tk-ink) !important;
+    background: rgba(255, 251, 242, 0.92) !important;
+    border-color: rgba(255, 251, 242, 0.48) !important;
+    -webkit-backdrop-filter: blur(18px) saturate(150%) !important;
+    backdrop-filter: blur(18px) saturate(150%) !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.78),
+      0 8px 26px rgba(58, 18, 32, 0.14),
+      0 2px 10px rgba(217, 74, 107, 0.1) !important;
+    transform: translateY(-1px);
+  }
+
+  .site-nav .lang-dropdown:not(.open):not(.is-open) .lang-current:hover .lang-chevron {
+    color: inherit !important;
+    opacity: 1 !important;
+  }
+
+  .site-nav .lang-dropdown.open .lang-current:hover,
+  .site-nav .lang-dropdown.is-open .lang-current:hover {
+    color: var(--tk-ink) !important;
+    background: rgba(255, 251, 242, 0.78) !important;
+    border-color: rgba(255, 251, 242, 0.55) !important;
+    -webkit-backdrop-filter: blur(18px) saturate(155%) !important;
+    backdrop-filter: blur(18px) saturate(155%) !important;
+    text-shadow: none !important;
+    transform: none;
+  }
+
+  .nav-toggle-lines,
+  .nav-toggle-lines::before,
+  .nav-toggle-lines::after {
+    background: #FFFBF2 !important;
+  }
+}
+
+/* Open menu → close (×): cream bars use `!important` above; center bar must go transparent
+ * and arms stay cream so styles.css morph reads as an X instead of three stacked strokes. */
+.site-header .nav-toggle[aria-expanded="true"] .nav-toggle-lines {
+  background: transparent !important;
+}
+
+.site-header .nav-toggle[aria-expanded="true"] .nav-toggle-lines::before,
+.site-header .nav-toggle[aria-expanded="true"] .nav-toggle-lines::after {
+  background: var(--tk-cream) !important;
+}
+
+/* Reduced-transparency fallback — drop the gradient to a flat
+ * blush stack so the menu still reads pink without backdrop
+ * blur. Tracks the same ruby → blush axis. */
+@media (max-width: 768px) and (prefers-reduced-transparency: reduce) {
+  .site-nav {
+    background: linear-gradient(180deg, #D94A6B 0%, #E89BAD 55%, #F4C8D2 100%) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  .site-nav .lang-menu {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: var(--tk-cream) !important;
+    border-color: rgba(232, 155, 173, 0.45) !important;
+  }
+}
+
+/* ── Section scaffolding ───────────────────────────────── */
+.tk-main {
+  position: relative;
+  z-index: 2;
+}
+.tk-shell {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+@media (max-width: 720px) { .tk-shell { padding: 0 20px; } }
+
+.tk-section { padding: 96px 0; position: relative; }
+.tk-section--tight { padding: 72px 0; }
+.tk-section + .tk-section { padding-top: 0; }
+
+.tk-eyebrow {
+  font-family: var(--font-tk-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--tk-blush-deep);
+  display: inline-flex; align-items: center; gap: 10px;
+}
+.tk-eyebrow::before {
+  content: ""; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--tk-blush-deep);
+  /* Static halo (always visible) is the inner 4px blush ring.
+   * The second shadow (starts at radius 0, ends at radius 14
+   * with alpha 0) is the *ping* — it expands outward and fades
+   * out, then resets. Together they read as a sonar dot:
+   * a calm core with a soft ripple, drawing the reader's eye
+   * to the start of each section. */
+  box-shadow:
+    0 0 0 4px rgba(232, 155, 173, 0.22),
+    0 0 0 0 rgba(217, 74, 107, 0.55);
+  animation: tk-eyebrow-ping 2.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* The What We Do eyebrow's `::before` dot inherits the same
+ * structure; we re-apply the animation here so the rule
+ * survives the scoped `.niusn-what` overrides above without
+ * needing the `.tk-eyebrow` class on it. */
+.niusn-what .nw-eyebrow::before {
+  box-shadow:
+    0 0 0 4px rgba(232, 155, 173, 0.22),
+    0 0 0 0 rgba(217, 74, 107, 0.55);
+  animation: tk-eyebrow-ping 2.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes tk-eyebrow-ping {
+  /* The outer ring radiates from the dot center, fades as it
+   * expands, then rests for ~30% of the cycle before pinging
+   * again — gives the pulse a natural, breathing rhythm
+   * (rather than a relentless strobe). */
+  0% {
+    box-shadow:
+      0 0 0 4px rgba(232, 155, 173, 0.22),
+      0 0 0 0 rgba(217, 74, 107, 0.55);
+  }
+  70% {
+    box-shadow:
+      0 0 0 4px rgba(232, 155, 173, 0.22),
+      0 0 0 14px rgba(217, 74, 107, 0);
+  }
+  100% {
+    box-shadow:
+      0 0 0 4px rgba(232, 155, 173, 0.22),
+      0 0 0 14px rgba(217, 74, 107, 0);
+  }
+}
+
+/* Honour the user's motion preference — disable the ping
+ * for anyone who has reduced-motion enabled. The static dot
+ * + halo remain so the visual signature is preserved. */
+@media (prefers-reduced-motion: reduce) {
+  .tk-eyebrow::before,
+  .niusn-what .nw-eyebrow::before {
+    animation: none;
+    box-shadow: 0 0 0 4px rgba(232, 155, 173, 0.22);
+  }
+}
+
+.tk-h2 {
+  font-family: var(--font-tk-headline);
+  font-weight: 400;
+  font-size: clamp(40px, 4.8vw, 64px);
+  line-height: 1.02;
+  letter-spacing: 0.005em;
+  color: var(--tk-ink);
+  text-align: center;
+  text-transform: uppercase;
+}
+/* Italic refrain → same condensed headline stack as shout (poster-style em, à la ref. “LET’S”). */
+.tk-h2 em {
+  font-family: var(--font-tk-headline);
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: inherit;
+  text-transform: none;
+  color: var(--tk-blush-deep);
+  font-variation-settings: normal;
+}
+.tk-sub {
+  font-size: 15px;
+  color: var(--tk-graphite);
+  line-height: 1.6;
+  text-align: center;
+  margin-top: 14px;
+  max-width: 56ch;
+  margin-left: auto; margin-right: auto;
+}
+

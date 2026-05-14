@@ -1,0 +1,78 @@
+/* TOSS skin — partial (order preserved). */
+
+/* ============================================================
+   5 · GALLERY ROW (dream worlds)
+============================================================ */
+.tk-gallery {
+  display: grid;
+  grid-template-columns: 280px repeat(5, 1fr);
+  gap: 12px;
+  align-items: stretch;
+}
+.tk-gallery__lead {
+  background: linear-gradient(155deg, var(--tk-butter) 0%, var(--tk-blush-soft) 100%);
+  border-radius: var(--tk-radius-md);
+  padding: 26px 24px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  position: relative; overflow: hidden;
+}
+.tk-gallery__lead-title {
+  font-family: var(--font-tk-display);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--tk-ink);
+  line-height: 1.2;
+}
+.tk-gallery__lead-title em { font-style: italic; font-weight: 300; color: var(--tk-blush-deep); }
+.tk-gallery__lead-sub { font-size: 12px; color: var(--tk-graphite); margin-top: 8px; }
+.tk-gallery__lead-cta {
+  align-self: flex-start;
+  background: #fff;
+  color: var(--tk-ink);
+  border: none;
+  border-radius: var(--tk-pill);
+  padding: 10px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex; align-items: center; gap: 6px;
+  transition: transform .2s, box-shadow .2s;
+}
+.tk-gallery__lead-cta:hover { transform: translateY(-2px); box-shadow: var(--tk-shadow-soft); }
+
+.tk-gallery__tile {
+  border-radius: var(--tk-radius-md);
+  aspect-ratio: 3 / 4;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  cursor: pointer;
+  transition: transform .3s;
+}
+.tk-gallery__tile:hover { transform: translateY(-4px); }
+.tk-gallery__tile-label {
+  position: absolute;
+  left: 14px; bottom: 14px;
+  font-family: var(--font-tk-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(58, 42, 48, 0.7);
+  background: rgba(255,255,255,0.7);
+  padding: 4px 8px;
+  border-radius: 6px;
+  backdrop-filter: blur(6px);
+}
+.tk-gallery__tile-bloom {
+  position: absolute;
+  width: 60%; height: 60%;
+  border-radius: 50%;
+  filter: blur(28px);
+  opacity: 0.7;
+}
+
+@media (max-width: 980px) {
+  .tk-gallery { grid-template-columns: 1fr 1fr; }
+  .tk-gallery__lead { grid-column: 1 / -1; }
+}
+

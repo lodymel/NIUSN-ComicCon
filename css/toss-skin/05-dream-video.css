@@ -1,0 +1,62 @@
+/* TOSS skin — partial (order preserved). */
+
+/* ============================================================
+   4 · DREAM / VIDEO BLOCK
+============================================================ */
+.tk-dream__head { text-align: center; margin-bottom: 36px; }
+.tk-dream__head .tk-h2 { margin-top: 14px; }
+
+.tk-video-card {
+  position: relative;
+  border-radius: var(--tk-radius-lg);
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background: #1d1018;
+  box-shadow: var(--tk-shadow-plush);
+}
+.tk-video-card video {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.tk-video-card__caption {
+  position: absolute;
+  left: 50%; bottom: 78px;
+  transform: translateX(-50%);
+  font-family: var(--font-tk-display);
+  font-style: italic;
+  color: rgba(255,255,255, 0.92);
+  font-size: 18px;
+  letter-spacing: 0.02em;
+  text-shadow: 0 4px 24px rgba(0,0,0,0.5);
+  pointer-events: none;
+}
+.tk-video-card__play {
+  position: absolute;
+  left: 50%; bottom: 32px;
+  transform: translateX(-50%);
+  background: rgba(255,255,255,0.95);
+  color: var(--tk-ink);
+  border: none;
+  border-radius: var(--tk-pill);
+  padding: 12px 22px 12px 18px;
+  font-family: var(--font-tk-body);
+  font-size: 14px;
+  font-weight: 600;
+  display: inline-flex; align-items: center; gap: 8px;
+  cursor: pointer;
+  transition: transform .25s, box-shadow .25s;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+}
+.tk-video-card__play:hover {
+  transform: translateX(-50%) translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.32);
+}
+.tk-video-card__play::before {
+  content: "";
+  width: 0; height: 0;
+  border-style: solid;
+  border-width: 6px 0 6px 9px;
+  border-color: transparent transparent transparent currentColor;
+}
+

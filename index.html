@@ -11,7 +11,7 @@
     <title>NIUSN · Hong Kong Comic Con 2026</title>
     <link rel="canonical" href="./" />
 
-    <!-- Open Graph / X — absolute URLs for crawlers (GitHub Pages project site path). -->
+    <!-- OG / Twitter -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://lodymel.github.io/NIUSN-ComicCon/" />
     <meta property="og:title" content="NIUSN · Hong Kong Comic Con 2026" />
@@ -40,7 +40,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
     />
-    <!-- Korean (ko): Nanum Gothic (Naver-class readable body) + Noto Sans KR (neutral UI/headline — common on modern Korean product surfaces); Pretendard fallback. -->
+    <!-- KO body/UI fonts: Nanum Gothic + Noto Sans KR -->
     <link
       href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
@@ -115,12 +115,11 @@
 
     <a class="skip-link" href="#main" data-i18n="skip">본문으로 건너뛰기</a>
 
-    <!-- Background music when nav sound toggle is ON (GEMBIT · New Era). -->
+    <!-- Ambient audio (nav toggle) -->
     <audio id="niusn-ambient-audio" loop playsinline preload="metadata" aria-hidden="true">
       <source src="assets/audio/gembit-new-era.mp3?v=1" type="audio/mpeg" />
     </audio>
 
-    <!-- ───────── HEADER (preserved verbatim from index.html) ───────── -->
     <header class="site-header">
       <div class="header-scrim" aria-hidden="true"></div>
       <div class="header-inner nav-wrap">
@@ -191,7 +190,6 @@
 
     <main id="main" class="tk-main">
 
-      <!-- ───────── 1 · HERO ───────── -->
       <section id="top" class="tk-hero" aria-labelledby="tk-hero-h1">
         <div class="tk-hero__bg" aria-hidden="true">
           <video
@@ -233,7 +231,6 @@
         </div>
       </section>
 
-      <!-- ───────── 2 · BOOTH / MAP ───────── -->
       <section id="booth-info" class="tk-section tk-booth" aria-labelledby="tk-booth-h2">
         <div class="tk-shell">
           <div class="tk-booth__head tk-rise">
@@ -260,7 +257,6 @@
         </div>
       </section>
 
-      <!-- ───────── 3 · WHAT WE DO ───────── -->
       <section
         id="what-we-do"
         class="niusn-what"
@@ -369,7 +365,6 @@
         </div>
       </section>
 
-      <!-- ───────── CARD CAROUSEL (visual interlude) ───────── -->
       <section id="carousel-spotlight" class="tk-section tk-carousel-section" aria-hidden="true">
         <div class="tk-carousel" role="presentation">
           <div class="tk-carousel__stage">
@@ -401,7 +396,6 @@
         </div>
       </section>
 
-      <!-- ───────── CONTACT ───────── -->
       <section id="contact" class="tk-section">
         <div class="tk-shell">
           <div class="tk-contact tk-rise">
@@ -500,7 +494,6 @@
       </section>
     </main>
 
-    <!-- ───────── FOOTER (preserved from index.html) ───────── -->
     <footer class="site-footer">
       <div class="shell footer-shell">
         <nav class="footer-sns" data-i18n-attr="aria-label:footer.snsNavAria" aria-label="Social links">
@@ -515,49 +508,45 @@
         </nav>
         <p class="footer-copy" data-i18n="footer.copyright">© 2026 NIUSN Corp. All rights reserved.</p>
       </div>
-    </footer>
-
-    <!-- Fixed ticker: *outside* .site-footer so `position:fixed` isn’t affected by footer stacking / body scroll-lock. -->
-    <section
-      class="footer-marquee"
-      data-i18n-attr="aria-label:footer.marqueeAria"
-      aria-label="NIUSN · AI-Powered Animation Studio · Hong Kong Comic Con 2026"
-    >
-      <div class="footer-marquee__viewport" aria-hidden="true">
-        <div class="footer-marquee__track">
-          <div class="footer-marquee__row">
-            <div class="footer-marquee__chunk">
-              <span class="footer-marquee__brand">NIUSN</span>
-              <span class="footer-marquee__sep" aria-hidden="true">·</span>
-              <span data-i18n="footer.marqueeTagline">AI-Powered Animation Studio</span>
-              <span class="footer-marquee__sep" aria-hidden="true">·</span>
-              <span data-i18n="footer.marqueeEvent">Hong Kong Comic Con 2026</span>
-              <span class="footer-marquee__sep" aria-hidden="true">·</span>
-              <span data-i18n="footer.marqueeBoothLine">HKCEC · Hall 3E · Booth D29</span>
-            </div>
-            <div class="footer-marquee__chunk">
-              <span class="footer-marquee__brand">NIUSN</span>
-              <span class="footer-marquee__sep" aria-hidden="true">·</span>
-              <span data-i18n="footer.marqueeTagline">AI-Powered Animation Studio</span>
-              <span class="footer-marquee__sep" aria-hidden="true">·</span>
-              <span data-i18n="footer.marqueeEvent">Hong Kong Comic Con 2026</span>
-              <span class="footer-marquee__sep" aria-hidden="true">·</span>
-              <span data-i18n="footer.marqueeBoothLine">HKCEC · Hall 3E · Booth D29</span>
-            </div>
-            <div class="footer-marquee__chunk">
-              <span class="footer-marquee__brand">NIUSN</span>
-              <span class="footer-marquee__sep" aria-hidden="true">·</span>
-              <span data-i18n="footer.marqueeTagline">AI-Powered Animation Studio</span>
-              <span class="footer-marquee__sep" aria-hidden="true">·</span>
-              <span data-i18n="footer.marqueeEvent">Hong Kong Comic Con 2026</span>
+      <section
+        class="footer-marquee"
+        data-i18n-attr="aria-label:footer.marqueeAria"
+        aria-label="NIUSN · AI-Powered Animation Studio · Hong Kong Comic Con 2026"
+      >
+        <div class="footer-marquee__viewport" aria-hidden="true">
+          <div class="footer-marquee__track">
+            <div class="footer-marquee__row">
+              <div class="footer-marquee__chunk">
+                <span class="footer-marquee__brand">NIUSN</span>
+                <span class="footer-marquee__sep" aria-hidden="true">·</span>
+                <span data-i18n="footer.marqueeTagline">AI-Powered Animation Studio</span>
+                <span class="footer-marquee__sep" aria-hidden="true">·</span>
+                <span data-i18n="footer.marqueeEvent">Hong Kong Comic Con 2026</span>
+                <span class="footer-marquee__sep" aria-hidden="true">·</span>
+                <span data-i18n="footer.marqueeBoothLine">HKCEC · Hall 3E · Booth D29</span>
+              </div>
+              <div class="footer-marquee__chunk">
+                <span class="footer-marquee__brand">NIUSN</span>
+                <span class="footer-marquee__sep" aria-hidden="true">·</span>
+                <span data-i18n="footer.marqueeTagline">AI-Powered Animation Studio</span>
+                <span class="footer-marquee__sep" aria-hidden="true">·</span>
+                <span data-i18n="footer.marqueeEvent">Hong Kong Comic Con 2026</span>
+                <span class="footer-marquee__sep" aria-hidden="true">·</span>
+                <span data-i18n="footer.marqueeBoothLine">HKCEC · Hall 3E · Booth D29</span>
+              </div>
+              <div class="footer-marquee__chunk">
+                <span class="footer-marquee__brand">NIUSN</span>
+                <span class="footer-marquee__sep" aria-hidden="true">·</span>
+                <span data-i18n="footer.marqueeTagline">AI-Powered Animation Studio</span>
+                <span class="footer-marquee__sep" aria-hidden="true">·</span>
+                <span data-i18n="footer.marqueeEvent">Hong Kong Comic Con 2026</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </footer>
 
-    <!-- Fixed scroll-to-top — glass pill + scroll progress ring (parity with niusn-landing) -->
-    <button
       type="button"
       id="scroll-to-top"
       class="scroll-top-fab"
@@ -593,13 +582,11 @@
       </span>
     </button>
 
-    <!-- preserve nav interactions -->
     <script src="preloader.js?v=8" defer></script>
     <script src="i18n.js?v=10" defer></script>
     <script src="contact-mailto.js?v=2" defer></script>
     <script src="wireframe.js?v=3" defer></script>
 
-    <!-- Booth map iframe: when #booth-info enters view, signal the embedded app (postMessage → app.jsx). -->
     <script>
       (function () {
         var section = document.getElementById("booth-info");
@@ -680,7 +667,6 @@
       })();
     </script>
 
-    <!-- booth route animator -->
     <script>
       (function () {
         var section = document.querySelector('[data-tk-map]');
@@ -747,8 +733,7 @@
       })();
     </script>
 
-    <!-- Hero loop: native <video> autoplay/muted/loop. Belt-and-braces
-         re-kick on iOS Low Power Mode / aggressive tab throttling. -->
+    <!-- Hero video: replay on visibility (iOS Low Power / tab throttle) -->
     <script>
       (function () {
         var video = document.getElementById('tk-hero-yt');
