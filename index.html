@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#FFF6F4" />
+    <meta
+      name="description"
+      content="NIUSN at Hong Kong Comic Con 2026 — Booth 3E-D29, maps, and how we build AI-native learning &amp; storytelling."
+    />
+    <title>NIUSN · Hong Kong Comic Con 2026</title>
+    <link rel="canonical" href="./" />
+
+    <!-- Open Graph / X — absolute URLs for crawlers (GitHub Pages project site path). -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://lodymel.github.io/NIUSN-ComicCon/" />
+    <meta property="og:title" content="NIUSN · Hong Kong Comic Con 2026" />
+    <meta
+      property="og:description"
+      content="NIUSN at Hong Kong Comic Con 2026 — Booth 3E-D29, maps, and how we build AI-native learning &amp; storytelling."
+    />
+    <meta property="og:image" content="https://lodymel.github.io/NIUSN-ComicCon/assets/og.webp?v=1" />
+    <meta property="og:image:type" content="image/webp" />
+    <meta property="og:image:width" content="1024" />
+    <meta property="og:image:height" content="537" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="NIUSN · Hong Kong Comic Con 2026" />
+    <meta
+      name="twitter:description"
+      content="NIUSN at Hong Kong Comic Con 2026 — Booth 3E-D29, maps, and how we build AI-native learning &amp; storytelling."
+    />
+    <meta name="twitter:image" content="https://lodymel.github.io/NIUSN-ComicCon/assets/og.webp?v=1" />
+
+    <link rel="icon" href="assets/favicon.webp?v=1" type="image/webp" sizes="32x32" />
+    <link rel="apple-touch-icon" href="assets/favicon.webp?v=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
+    <!-- Korean (ko): Nanum Gothic (Naver-class readable body) + Noto Sans KR (neutral UI/headline — common on modern Korean product surfaces); Pretendard fallback. -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=IBM+Plex+Mono:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="toss-skin.css?v=89" />
+    <style id="niusn-preloader-critical">
+      html.niusn-preloader-is-active,
+      html.niusn-preloader-is-active body {
+        overflow: hidden;
+        height: 100%;
+      }
+    </style>
+    <link rel="stylesheet" href="preloader.css?v=4" />
+    <link rel="preload" href="assets/preloader/bunny.webp?v=1" as="image" />
+  </head>
+  <body>
+    <script>
+      document.documentElement.classList.add("niusn-preloader-is-active");
+    </script>
+
+    <div
+      id="niusn-preloader"
+      class="niusn-preloader"
+      role="progressbar"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      aria-valuenow="0"
+      aria-busy="true"
+      aria-label="Loading page"
+    >
+      <div class="niusn-preloader__corner">
+        <span class="niusn-preloader__corner-mini" aria-hidden="true"></span>
+        <span>NIUSN · Comic Con</span>
+      </div>
+      <div class="niusn-preloader__footer-l">Hong Kong · 2026</div>
+      <div class="niusn-preloader__footer">GEMBIT · New Era</div>
+
+      <div class="niusn-preloader__stage">
+        <div class="niusn-preloader__composition">
+          <div class="niusn-preloader__bunny-shadow" aria-hidden="true"></div>
+          <div class="niusn-preloader__rider" aria-hidden="true">
+            <div class="niusn-preloader__pulse">
+              <img
+                class="niusn-preloader__bunny-img"
+                src="assets/preloader/bunny.webp?v=1"
+                alt=""
+                width="110"
+                height="116"
+                decoding="async"
+              />
+            </div>
+          </div>
+
+          <div class="niusn-preloader__bar">
+            <div class="niusn-preloader__bar-track">
+              <div class="niusn-preloader__fill"></div>
+            </div>
+          </div>
+
+          <div class="niusn-preloader__meta">
+            <span class="niusn-preloader__label">Loading</span>
+            <span class="niusn-preloader__pct">0%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a class="skip-link" href="#main" data-i18n="skip">본문으로 건너뛰기</a>
+
+    <!-- Background music when nav sound toggle is ON (GEMBIT · New Era). -->
+    <audio id="niusn-ambient-audio" loop playsinline preload="metadata" aria-hidden="true">
+      <source src="assets/audio/gembit-new-era.mp3?v=1" type="audio/mpeg" />
+    </audio>
+
+    <!-- ───────── HEADER (preserved verbatim from index.html) ───────── -->
+    <header class="site-header">
+      <div class="header-scrim" aria-hidden="true"></div>
+      <div class="header-inner nav-wrap">
+        <a class="logo nav-brand" href="#top" data-i18n-attr="aria-label:logo.aria" aria-label="NIUSN: 페이지 상단으로">
+          <img class="nav-brand-img" src="https://www.niusn.com/assets/images/logo.webp" alt="NIUSN" width="140" height="36" decoding="async" fetchpriority="high" />
+        </a>
+        <div class="header-tools">
+          <button type="button" class="nav-toggle nav-mobile-btn" aria-expanded="false" aria-controls="site-nav">
+            <span class="nav-toggle-lines" aria-hidden="true"></span>
+            <span class="visually-hidden" data-i18n="nav.menu">메뉴</span>
+          </button>
+          <nav id="site-nav" class="site-nav" data-i18n-attr="aria-label:nav.label" aria-label="주요 메뉴">
+            <span class="nav-active-line" aria-hidden="true"></span>
+            <ul class="nav-links" role="list">
+              <li><a class="nav-link" href="#top">
+                <span class="nav-link__label" data-i18n="nav.event">HONGKONG COMIC CON</span>
+              </a></li>
+              <li><a class="nav-link" href="#booth-info">
+                <span class="nav-link__label" data-i18n="nav.booth">BOOTH</span>
+              </a></li>
+              <li><a class="nav-link" href="#what-we-do">
+                <span class="nav-link__label" data-i18n="nav.about">WHAT WE DO</span>
+              </a></li>
+            </ul>
+            <div class="nav-trailing">
+              <button type="button" id="sound-toggle" class="sound-block" aria-pressed="false" data-i18n-attr="aria-label:sound.toggleAria">
+                <span class="sound-inner">
+                  <span class="sound-icon-wrap" aria-hidden="true">
+                    <svg class="sound-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path class="sound-icon-svg__speaker" d="M11 5 6 9H2v6h4l5 4V5Z" />
+                      <path class="sound-icon-svg__wave sound-icon-svg__wave--a" d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+                      <path class="sound-icon-svg__wave sound-icon-svg__wave--b" d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+                      <line class="sound-icon-svg__mute" x1="3" y1="21" x2="21" y2="3" />
+                    </svg>
+                  </span>
+                </span>
+                <span class="sound-block__caption">
+                  <span class="sound-block__state" data-sound-state-label aria-hidden="true">OFF</span>
+                </span>
+              </button>
+              <div id="lang-dropdown" class="lang-dropdown">
+                <span class="visually-hidden" data-i18n="lang.label">언어</span>
+                <button type="button" id="lang-trigger" class="lang-current" aria-haspopup="listbox" aria-expanded="false" aria-controls="lang-menu" data-i18n-attr="aria-label:lang.triggerAria">
+                  <span id="lang-label">EN</span>
+                  <svg class="lang-chevron" viewBox="0 0 10 6" width="9" height="5" aria-hidden="true">
+                    <path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </button>
+                <ul id="lang-menu" class="lang-menu" role="listbox" tabindex="-1" hidden data-i18n-attr="aria-label:lang.menuAria">
+                  <li><button type="button" class="lang-option" role="option" data-lang="en" aria-selected="true" data-i18n-attr="aria-label:lang.ariaEn">EN</button></li>
+                  <li><button type="button" class="lang-option" role="option" data-lang="ko" aria-selected="false" data-i18n-attr="aria-label:lang.ariaKo">KR</button></li>
+                  <li><button type="button" class="lang-option" role="option" data-lang="zh-Hans" aria-selected="false" data-i18n-attr="aria-label:lang.ariaHans">简体</button></li>
+                  <li><button type="button" class="lang-option" role="option" data-lang="zh-Hant" aria-selected="false" data-i18n-attr="aria-label:lang.ariaHant">繁體</button></li>
+                </ul>
+              </div>
+              <a class="nav-cta" href="#contact">
+                <span class="nav-cta__hint" aria-hidden="true">
+                  <span class="nav-cta__chev">›</span>
+                  <span class="nav-cta__chev">›</span>
+                </span>
+                <span class="nav-cta__text" data-i18n="nav.contact">CONTACT</span>
+              </a>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main id="main" class="tk-main">
+
+      <!-- ───────── 1 · HERO ───────── -->
+      <section id="top" class="tk-hero" aria-labelledby="tk-hero-h1">
+        <div class="tk-hero__bg" aria-hidden="true">
+          <video
+            id="tk-hero-yt"
+            class="tk-hero__yt"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+            disablepictureinpicture
+            disableremoteplayback
+            controlslist="nodownload noplaybackrate nofullscreen"
+            tabindex="-1"
+            aria-hidden="true"
+          >
+            <source src="assets/video/hero-video_1.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div class="tk-hero__veil" aria-hidden="true"></div>
+        <div class="tk-hero__inner tk-rise">
+          <h1 id="tk-hero-h1" class="tk-hero__brand">
+            <span class="tk-hero__brand-line" data-i18n="landing.hero.brandL1">NIUSN</span>
+            <span class="tk-hero__brand-line" data-i18n="landing.hero.brandL2">ON COMIC CON 2026</span>
+          </h1>
+          <p class="tk-hero__when" data-i18n="landing.hero.when">May 29 – 31 @Hong Kong HKCEC</p>
+          <a
+            class="hero-cta hero-cta--glass hero-cta--primary wf-hero__cta tk-hero__cta"
+            href="#booth-info"
+          >
+            <span class="hero-cta__inner">
+              <span class="hero-cta__enter-hint" aria-hidden="true">
+                <span class="hero-cta__chev">&rsaquo;</span>
+                <span class="hero-cta__chev">&rsaquo;</span>
+              </span>
+              <span class="hero-cta__label" data-i18n="boothInfo.ctaMain">Booth Information</span>
+            </span>
+          </a>
+        </div>
+      </section>
+
+      <!-- ───────── 2 · BOOTH / MAP ───────── -->
+      <section id="booth-info" class="tk-section tk-booth" aria-labelledby="tk-booth-h2">
+        <div class="tk-shell">
+          <div class="tk-booth__head tk-rise">
+            <span class="tk-eyebrow" data-i18n="landing.booth.eyebrow">Booth</span>
+            <div class="tk-headstack">
+              <h2 id="tk-booth-h2" class="tk-booth__title" data-i18n-html="landing.booth.titleHtml">Follow the <em>path</em> to us<span class="tk-booth__title-dot">.</span></h2>
+              <p class="tk-booth__lede" data-i18n-html="landing.booth.ledeHtml">Tap <strong>SHOW ME THE WAY</strong> on the map to get step-by-step directions from the main entrance to our booth.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tk-booth__map-shell">
+          <div class="tk-booth__map tk-rise" data-delay="1">
+            <iframe
+              class="tk-booth__map-frame"
+              src="uploads/niusn-map/dist/"
+              data-i18n-attr="title:landing.booth.mapIframeTitle"
+              title="NIUSN booth wayfinding map — HKCEC Hall 3E, D29"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allow="fullscreen"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
+      <!-- ───────── 3 · WHAT WE DO ───────── -->
+      <section
+        id="what-we-do"
+        class="niusn-what"
+        data-i18n-attr="aria-label:landing.wwd.ariaLabel"
+        aria-label="What we do"
+      >
+        <div class="niusn-inner">
+          <div class="nw-head">
+            <span class="nw-eyebrow" data-i18n="landing.wwd.eyebrow">What we do</span>
+            <div class="nw-headstack">
+              <h2 class="nw-title" data-i18n-html="landing.wwd.titleHtml">Redefining the <em>future of education</em><span class="nw-title-dot">.</span></h2>
+              <p class="nw-lede" data-i18n-html="landing.wwd.ledeHtml">
+                <strong>NIUSN goes beyond content creation.</strong>
+                Our world-class animations, powered by AI, set a new standard for learning.
+              </p>
+            </div>
+          </div>
+
+          <div class="nw-grid">
+            <article class="nw-card c1">
+              <div class="nw-num">01</div>
+              <div class="nw-card__art">
+                <img
+                  src="assets/nw-what-c1-ai-laptop.webp?v=1"
+                  alt=""
+                  width="400"
+                  height="400"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <h3 data-i18n-html="landing.wwd.c1.titleHtml">We Bring Stories to <em>Life</em><span class="nw-title-dot">.</span></h3>
+              <p data-i18n="landing.wwd.c1.body">Every story begins with a heartbeat. We find yours, and we let the world feel it. From a first idea to a finished frame, we build animations people remember long after the screen goes dark.</p>
+              <div class="nw-rule">
+                <a
+                  class="hero-cta hero-cta--glass hero-cta--primary nw-foot__cta"
+                  href="https://www.youtube.com/@NIUSN_Official"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <span class="hero-cta__inner">
+                    <span class="hero-cta__enter-hint" aria-hidden="true">
+                      <span class="hero-cta__chev">&rsaquo;</span>
+                      <span class="hero-cta__chev">&rsaquo;</span>
+                    </span>
+                    <span class="hero-cta__label" data-i18n="landing.wwd.c1.cta">Watch @NIUSN_Official</span>
+                  </span>
+                </a>
+              </div>
+            </article>
+
+            <article class="nw-card c2">
+              <div class="nw-num">02</div>
+              <div class="nw-card__art">
+                <img
+                  src="assets/nw-what-c2-film.webp?v=1"
+                  alt=""
+                  width="400"
+                  height="400"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <h3 data-i18n-html="landing.wwd.c2.titleHtml">We Align with <em>Imagination</em><span class="nw-title-dot">.</span></h3>
+              <p data-i18n="landing.wwd.c2.body">Innovation keeps deliverables on schedule and repeatable. Imagination hunts the shot people replay in their heads. Crew and pipeline hold both in focus, so what lands on screen is the story, not the machinery behind it.</p>
+              <div class="nw-rule">
+                <a class="hero-cta hero-cta--glass hero-cta--primary nw-foot__cta" href="#contact">
+                  <span class="hero-cta__inner">
+                    <span class="hero-cta__enter-hint" aria-hidden="true">
+                      <span class="hero-cta__chev">&rsaquo;</span>
+                      <span class="hero-cta__chev">&rsaquo;</span>
+                    </span>
+                    <span class="hero-cta__label" data-i18n="landing.wwd.c2.cta">Pipeline walk-through</span>
+                  </span>
+                </a>
+              </div>
+            </article>
+
+            <article class="nw-card c3">
+              <div class="nw-num">03</div>
+              <div class="nw-card__art">
+                <img
+                  src="assets/nw-what-c3-organizer.webp?v=1"
+                  alt=""
+                  width="400"
+                  height="400"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <h3 data-i18n-html="landing.wwd.c3.titleHtml">We Create with <em>You</em><span class="nw-title-dot">.</span></h3>
+              <p data-i18n="landing.wwd.c3.body">The best stories carry a fingerprint. Yours. Every character, every scene, every motion begins with what you believe in. We just help the world see it too.</p>
+              <div class="nw-rule">
+                <a class="hero-cta hero-cta--glass hero-cta--primary nw-foot__cta" href="#contact">
+                  <span class="hero-cta__inner">
+                    <span class="hero-cta__enter-hint" aria-hidden="true">
+                      <span class="hero-cta__chev">&rsaquo;</span>
+                      <span class="hero-cta__chev">&rsaquo;</span>
+                    </span>
+                    <span class="hero-cta__label" data-i18n="landing.wwd.c3.cta">Book a call</span>
+                  </span>
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ───────── CARD CAROUSEL (visual interlude) ───────── -->
+      <section id="carousel-spotlight" class="tk-section tk-carousel-section" aria-hidden="true">
+        <div class="tk-carousel" role="presentation">
+          <div class="tk-carousel__stage">
+            <div class="tk-carousel__floor"></div>
+            <div class="tk-carousel__ring">
+              <div class="tk-carousel__card">
+                <img src="assets/carousel/images/card-01.webp?v=1" alt="" width="451" height="563" loading="lazy" decoding="async" />
+              </div>
+              <div class="tk-carousel__card">
+                <img src="assets/carousel/images/card-02.webp?v=1" alt="" width="451" height="563" loading="lazy" decoding="async" />
+              </div>
+              <div class="tk-carousel__card">
+                <img src="assets/carousel/images/card-04.webp?v=1" alt="" width="451" height="563" loading="lazy" decoding="async" />
+              </div>
+              <div class="tk-carousel__card">
+                <img src="assets/carousel/images/card-05.webp?v=1" alt="" width="451" height="563" loading="lazy" decoding="async" />
+              </div>
+              <div class="tk-carousel__card">
+                <img src="assets/carousel/images/card-07.webp?v=1" alt="" width="451" height="563" loading="lazy" decoding="async" />
+              </div>
+              <div class="tk-carousel__card">
+                <img src="assets/carousel/images/card-08.webp?v=1" alt="" width="451" height="563" loading="lazy" decoding="async" />
+              </div>
+              <div class="tk-carousel__card">
+                <img src="assets/carousel/images/card-09.webp?v=1" alt="" width="451" height="563" loading="lazy" decoding="async" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ───────── CONTACT ───────── -->
+      <section id="contact" class="tk-section">
+        <div class="tk-shell">
+          <div class="tk-contact tk-rise">
+            <div class="tk-contact__inner">
+              <div class="tk-contact__intro">
+                <span class="tk-eyebrow" data-i18n="contact.sectionTag">Contact</span>
+                <div class="tk-headstack">
+                  <h2 class="tk-contact__title" data-i18n-html="contact.titleHtml">Let's <em>talk</em><span class="tk-contact__title-dot">.</span></h2>
+                  <p class="tk-contact__lede" data-i18n="contact.ledeHtml">An event, a partnership, a press thing, or just hello? Drop us a line, or shoot us a message. We read every one. Promise.</p>
+                </div>
+              </div>
+              <div class="tk-contact__body">
+                <div class="tk-contact__stamp" aria-hidden="true">
+                  <figure class="tk-contact__figure tk-contact__figure--inline">
+                    <img
+                      class="tk-contact__art"
+                      src="assets/contact-envelope.webp?v=1"
+                      alt=""
+                      width="1024"
+                      height="571"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </figure>
+                </div>
+                <form
+                  id="tk-contact-form"
+                  class="tk-form tk-contact__form"
+                  action="#"
+                  method="post"
+                  novalidate
+                  data-business-email="sns@niusn.com"
+                >
+                <div class="tk-field-row tk-field-row--duo">
+                  <div class="tk-field">
+                    <label for="tk-name" data-i18n="contact.name">Name</label>
+                    <input
+                      id="tk-name"
+                      type="text"
+                      name="name"
+                      autocomplete="name"
+                      data-i18n-placeholder="contact.phName"
+                      placeholder="Your name"
+                    />
+                  </div>
+                  <div class="tk-field">
+                    <label for="tk-email" data-i18n="contact.email">Email</label>
+                    <input
+                      id="tk-email"
+                      type="email"
+                      name="email"
+                      autocomplete="email"
+                      data-i18n-placeholder="contact.phEmailSample"
+                      placeholder="hello@yourname.com"
+                    />
+                  </div>
+                </div>
+                <div class="tk-field">
+                  <label for="tk-subject" data-i18n="contact.subject">Subject</label>
+                  <input
+                    id="tk-subject"
+                    type="text"
+                    name="subject"
+                    autocomplete="off"
+                    data-i18n-placeholder="contact.phSubject"
+                    placeholder="What is this regarding?"
+                  />
+                </div>
+                <div class="tk-field">
+                  <label for="tk-msg" data-i18n="contact.message">Message</label>
+                  <textarea
+                    id="tk-msg"
+                    name="message"
+                    rows="4"
+                    data-i18n-placeholder="contact.phMessageLong"
+                    placeholder="What can we make together?"
+                  ></textarea>
+                </div>
+                <button
+                  type="submit"
+                  class="hero-cta hero-cta--glass hero-cta--primary tk-form__submit"
+                >
+                  <span class="hero-cta__inner">
+                    <span class="hero-cta__enter-hint" aria-hidden="true">
+                      <span class="hero-cta__chev">&rsaquo;</span>
+                      <span class="hero-cta__chev">&rsaquo;</span>
+                    </span>
+                    <span class="hero-cta__label" data-i18n="contact.submitCta">Get in touch</span>
+                  </span>
+                </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ───────── FOOTER (preserved from index.html) ───────── -->
+    <footer class="site-footer">
+      <div class="shell footer-shell">
+        <nav class="footer-sns" data-i18n-attr="aria-label:footer.snsNavAria" aria-label="Social links">
+          <ul class="footer-sns-list">
+            <li><a href="https://www.instagram.com/niusn.official/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+            <li><a href="https://www.linkedin.com/in/niusn-corp-814a14404/?skipRedirect=true" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="https://x.com/niusn_official" target="_blank" rel="noopener noreferrer">X</a></li>
+            <li><a href="https://www.youtube.com/@NIUSN_Official" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+            <li><a href="https://www.tiktok.com/@gembit.official" target="_blank" rel="noopener noreferrer">TikTok</a></li>
+            <li><a href="https://xhslink.com/m/51WIIr7cn6T" target="_blank" rel="noopener noreferrer">Xiaohongshu</a></li>
+          </ul>
+        </nav>
+        <p class="footer-copy" data-i18n="footer.copyright">© 2026 NIUSN Corp. All rights reserved.</p>
+      </div>
+      <section
+        class="footer-marquee"
+        data-i18n-attr="aria-label:footer.marqueeAria"
+        aria-label="NIUSN · AI-Powered Animation Studio · Hong Kong Comic Con 2026"
+      >
+        <div class="footer-marquee__viewport" aria-hidden="true">
+          <div class="footer-marquee__track">
+            <div class="footer-marquee__row">
+              <div class="footer-marquee__chunk">
+                <span class="footer-marquee__brand">NIUSN</span>
+                <span class="footer-marquee__sep" aria-hidden="true">·</span>
+                <span data-i18n="footer.marqueeTagline">AI-Powered Animation Studio</span>
+                <span class="footer-marquee__sep" aria-hidden="true">·</span>
+                <span data-i18n="footer.marqueeEvent">Hong Kong Comic Con 2026</span>
+                <span class="footer-marquee__sep" aria-hidden="true">·</span>
+                <span data-i18n="footer.marqueeBoothLine">HKCEC · Hall 3E · Booth D29</span>
+              </div>
+              <div class="footer-marquee__chunk">
+                <span class="footer-marquee__brand">NIUSN</span>
+                <span class="footer-marquee__sep" aria-hidden="true">·</span>
+                <span data-i18n="footer.marqueeTagline">AI-Powered Animation Studio</span>
+                <span class="footer-marquee__sep" aria-hidden="true">·</span>
+                <span data-i18n="footer.marqueeEvent">Hong Kong Comic Con 2026</span>
+                <span class="footer-marquee__sep" aria-hidden="true">·</span>
+                <span data-i18n="footer.marqueeBoothLine">HKCEC · Hall 3E · Booth D29</span>
+              </div>
+              <div class="footer-marquee__chunk">
+                <span class="footer-marquee__brand">NIUSN</span>
+                <span class="footer-marquee__sep" aria-hidden="true">·</span>
+                <span data-i18n="footer.marqueeTagline">AI-Powered Animation Studio</span>
+                <span class="footer-marquee__sep" aria-hidden="true">·</span>
+                <span data-i18n="footer.marqueeEvent">Hong Kong Comic Con 2026</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </footer>
+
+    <!-- Fixed scroll-to-top — glass pill + scroll progress ring (parity with niusn-landing) -->
+    <button
+      type="button"
+      id="scroll-to-top"
+      class="scroll-top-fab"
+      hidden
+      data-i18n-attr="aria-label:scrollTopFab.aria"
+      aria-label="Back to top"
+    >
+      <svg class="scroll-top-fab__ring" viewBox="0 0 44 44" width="44" height="44" aria-hidden="true" focusable="false">
+        <circle class="scroll-top-fab__ring-track" cx="22" cy="22" r="17.75" fill="none" pathLength="100" />
+        <g transform="rotate(-90 22 22)">
+          <circle class="scroll-top-fab__ring-prog" cx="22" cy="22" r="17.75" fill="none" pathLength="100" />
+        </g>
+      </svg>
+      <span class="scroll-top-fab__inner">
+        <span class="scroll-top-fab__hover" aria-hidden="true"></span>
+        <svg
+          class="scroll-top-fab__arrow"
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <path
+            d="M12 21L12 3M12 3L20.5 11.5M12 3L3.5 11.5"
+            stroke="currentColor"
+            stroke-width="1.75"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </span>
+    </button>
+
+    <!-- preserve nav interactions -->
+    <script src="preloader.js?v=8" defer></script>
+    <script src="i18n.js?v=10" defer></script>
+    <script src="contact-mailto.js?v=2" defer></script>
+    <script src="wireframe.js?v=3" defer></script>
+
+    <!-- Booth map iframe: when #booth-info enters view, signal the embedded app (postMessage → app.jsx). -->
+    <script>
+      (function () {
+        var section = document.getElementById("booth-info");
+        var iframe = document.querySelector(".tk-booth__map-frame");
+        if (!section || !iframe) return;
+
+        var iframeTargetOrigin;
+        try {
+          iframeTargetOrigin = new URL(iframe.src, window.location.href).origin;
+        } catch (e) {
+          iframeTargetOrigin = window.location.origin;
+        }
+
+        var acked = false;
+        var harnessStarted = false;
+        var pollId = null;
+
+        function stop() {
+          if (pollId !== null) {
+            clearInterval(pollId);
+            pollId = null;
+          }
+        }
+
+        function send() {
+          if (acked) {
+            stop();
+            return;
+          }
+          try {
+            if (iframe.contentWindow) {
+              iframe.contentWindow.postMessage({ type: "niusn-map:auto-focus-route" }, iframeTargetOrigin);
+            }
+          } catch (e) {}
+        }
+
+        window.addEventListener("message", function (e) {
+          if (e.source !== iframe.contentWindow) return;
+          if (e.origin !== iframeTargetOrigin) return;
+          if (e.data && e.data.type === "niusn-map:auto-focus-ack") {
+            acked = true;
+            stop();
+          }
+        });
+
+        function startTrying() {
+          if (acked || harnessStarted) return;
+          harnessStarted = true;
+          send();
+          pollId = window.setInterval(send, 300);
+          window.setTimeout(stop, 6000);
+        }
+
+        function maybeStart() {
+          if (acked || harnessStarted) return;
+          var r = iframe.getBoundingClientRect();
+          var sh = window.innerHeight || document.documentElement.clientHeight || 0;
+          var visible = sh > 0 && r.bottom > sh * 0.12 && r.top < sh * 0.88 && r.width > 0 && r.height > 0;
+          if (visible) startTrying();
+        }
+
+        iframe.addEventListener("load", maybeStart);
+
+        if ("IntersectionObserver" in window) {
+          new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (entry) {
+                if (entry.isIntersecting && entry.intersectionRatio >= 0.18) startTrying();
+              });
+            },
+            { threshold: [0, 0.18, 0.32], rootMargin: "0px 0px -6% 0px" }
+          ).observe(section);
+        } else {
+          iframe.addEventListener("load", function () {
+            window.setTimeout(startTrying, 600);
+          });
+        }
+      })();
+    </script>
+
+    <!-- booth route animator -->
+    <script>
+      (function () {
+        var section = document.querySelector('[data-tk-map]');
+        if (!section) return;
+        var route = section.querySelector('[data-tk-route]');
+        var overlay = section.querySelector('[data-tk-route-overlay]');
+        var pulse = section.querySelector('[data-tk-pulse]');
+        var label = section.querySelector('[data-tk-dest-label]');
+        var trigger = document.querySelector('[data-tk-route-trigger]');
+        var reset = document.querySelector('[data-tk-route-reset]');
+        if (!route) return;
+        var len = 0;
+        try { len = route.getTotalLength(); } catch (e) { len = 1200; }
+        route.style.strokeDasharray = len;
+        route.style.strokeDashoffset = len;
+        route.style.transition = 'none';
+
+        var played = false;
+        function play() {
+          // force reflow then animate
+          route.style.transition = 'none';
+          route.style.strokeDashoffset = len;
+          // eslint-disable-next-line no-unused-expressions
+          route.getBoundingClientRect();
+          route.style.transition = 'stroke-dashoffset 1.8s cubic-bezier(.65,0,.35,1)';
+          route.style.strokeDashoffset = 0;
+          if (overlay) {
+            overlay.style.transition = 'opacity .6s ease .9s';
+            overlay.style.opacity = '0.8';
+          }
+          if (pulse) {
+            pulse.style.transition = 'opacity .6s ease .6s';
+            pulse.style.opacity = '1';
+          }
+          if (label) {
+            label.style.transition = 'opacity .5s ease 1.4s, transform .5s ease 1.4s';
+            label.style.opacity = '1';
+          }
+          played = true;
+        }
+        function clear() {
+          route.style.transition = 'stroke-dashoffset .6s ease';
+          route.style.strokeDashoffset = len;
+          if (overlay) overlay.style.opacity = '0';
+          if (pulse) pulse.style.opacity = '0';
+          if (label) label.style.opacity = '0';
+          played = false;
+        }
+        if (trigger) trigger.addEventListener('click', function () { clear(); setTimeout(play, 80); });
+        if (reset) reset.addEventListener('click', clear);
+
+        if ('IntersectionObserver' in window) {
+          var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting && !played) {
+                setTimeout(play, 350);
+              }
+            });
+          }, { threshold: 0.35 });
+          io.observe(section);
+        } else {
+          setTimeout(play, 800);
+        }
+      })();
+    </script>
+
+    <!-- Hero loop: native <video> autoplay/muted/loop. Belt-and-braces
+         re-kick on iOS Low Power Mode / aggressive tab throttling. -->
+    <script>
+      (function () {
+        var video = document.getElementById('tk-hero-yt');
+        if (!video) return;
+        video.muted = true;
+        var tryPlay = function () {
+          var p = video.play();
+          if (p && typeof p.catch === 'function') {
+            p.catch(function () {
+              /* iOS sometimes blocks until the first user gesture;
+                 re-attempt on the next interaction. */
+              var resume = function () {
+                video.play().catch(function () {});
+                document.removeEventListener('touchstart', resume, true);
+                document.removeEventListener('click', resume, true);
+              };
+              document.addEventListener('touchstart', resume, true);
+              document.addEventListener('click', resume, true);
+            });
+          }
+        };
+        video.addEventListener('canplay', tryPlay, { once: true });
+        video.addEventListener('ended', tryPlay);
+        tryPlay();
+      })();
+    </script>
+
+  </body>
+</html>
