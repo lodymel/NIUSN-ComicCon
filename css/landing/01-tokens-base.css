@@ -508,7 +508,7 @@ button.lang-option {
   font-size: clamp(0.7rem, 0.12rem + 0.7vw, 0.8125rem);
   font-weight: 600;
   font-style: normal;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.078em;
   line-height: 1.5;
   cursor: pointer;
   box-shadow: none;
@@ -615,7 +615,7 @@ button.lang-option {
   font-family: "IBM Plex Mono", "Noto Sans SC", "Noto Sans TC", var(--font-cjk), ui-monospace, monospace;
   font-size: clamp(0.7rem, 0.1rem + 0.7vw, 0.75rem);
   font-weight: 600;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.078em;
   line-height: 1.5;
   color: var(--text);
   background: rgba(12, 8, 22, 0.38);
@@ -850,7 +850,7 @@ button.lang-option {
   gap: 0.3rem;
   font-size: 0.72rem;
   font-weight: 500;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.055em;
   text-transform: uppercase;
   color: rgba(236, 228, 255, 0.7);
   line-height: 1;

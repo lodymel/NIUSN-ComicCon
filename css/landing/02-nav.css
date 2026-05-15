@@ -118,9 +118,9 @@
   gap: max(0.55rem, calc(0.62 * 0.75rem));
   font-family: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
   font-size: clamp(0.7rem, 0.1rem + 0.7vw, 0.8125rem);
-  font-weight: 600;
+  font-weight: 700;
   font-style: normal;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.02em;
   line-height: 1.4;
   text-transform: uppercase;
   text-decoration: none;
@@ -304,9 +304,9 @@
 .nav-link {
   color: rgba(237, 209, 255, 0.45);
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
   font-size: clamp(0.7rem, 0.1rem + 0.7vw, 0.8125rem);
-  letter-spacing: 0.2em;
+  letter-spacing: 0.02em;
   line-height: 1.4;
   text-transform: uppercase;
   display: inline-flex;

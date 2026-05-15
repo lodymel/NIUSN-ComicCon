@@ -99,7 +99,38 @@
     animation-duration: 0.01s;
   }
 }
-/* Cream wash so the Anton type stays legible over moving footage */
+/* Mobile: hero footage + veil start below the sticky bar (`--header-h` from wireframe.js).
+ * Pull the section up so layout still meets the bar, while absolutely positioned layers
+ * begin lower — avoids video showing through the glass header. */
+@media (max-width: 768px) {
+  #top.tk-hero {
+    margin-top: calc(-1 * var(--header-h));
+    min-height: calc(var(--header-h) + clamp(520px, 92vh, 880px));
+  }
+  #top.tk-hero .tk-hero__bg,
+  #top.tk-hero .tk-hero__veil {
+    top: var(--header-h);
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  #top.tk-hero::after {
+    top: calc(var(--header-h) + 8%);
+  }
+}
+
+/* Mobile hero video: preserve 16∶9 framing — fit entire frame (`contain`), no baked-in crop zoom. */
+@media (max-width: 720px) {
+  .tk-hero__bg {
+    --tk-hero-crop: 1;
+    background: var(--tk-cotton);
+  }
+  .tk-hero__yt {
+    object-fit: contain;
+  }
+}
+
+/* Cream wash so Passion One / display type stays legible over moving footage */
 .tk-hero__veil {
   position: absolute;
   inset: 0;
@@ -110,18 +141,97 @@
     linear-gradient(180deg, rgba(255, 246, 244, 0.30) 0%, rgba(255, 246, 244, 0.50) 100%);
 }
 .tk-hero__brand {
-  display: flex; flex-direction: column; align-items: center; gap: 0.04em;
-  font-family: var(--font-tk-headline);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* HKCC hero: stacked Passion-style lines — tight inter-line rhythm */
+  gap: clamp(0px, 0.35vw, 5px);
+  font-family: var(--font-tk-hero-main);
+  /* Passion One Regular (400): face is inherently bold — matches hkcomiccon.com hero cadence */
   font-weight: 400;
-  font-size: clamp(56px, 9.5vw, 132px);
-  line-height: 0.94;
+  line-height: 0.875;
   letter-spacing: 0.005em;
   text-transform: uppercase;
   color: var(--tk-ink);
+  transform: scaleX(1.02);
+  transform-origin: center center;
 }
-.tk-hero__brand-line { display: block; }
+@media (min-width: 881px) {
+  .tk-hero__brand {
+    transform: translateY(calc(-1.05rem - 2vw)) scaleX(1.02);
+  }
+}
+/* Cursor parallax (HK Comic Con–style layered drift) — nx/ny on #top from wireframe.js */
+#top.tk-hero {
+  --hero-cursor-nx: 0;
+  --hero-cursor-ny: 0;
+}
+.tk-hero__brand-line {
+  display: block;
+  line-height: 0.865;
+}
+@media (prefers-reduced-motion: no-preference) and (pointer: fine) {
+  .tk-hero__brand-line {
+    --hero-parallax: 0.36;
+    transform: translate3d(
+      calc(var(--hero-cursor-nx, 0) * 22px * var(--hero-parallax)),
+      calc(var(--hero-cursor-ny, 0) * 16px * var(--hero-parallax)),
+      0
+    );
+  }
+  .tk-hero__brand-line--niusn { --hero-parallax: 0.28; }
+  .tk-hero__brand-line--place { --hero-parallax: 0.44; }
+  .tk-hero__brand-line--event { --hero-parallax: 0.32; }
+  .tk-hero__brand-line--dates { --hero-parallax: 0.52; }
+}
+/* Four-line shout: dominant event line; NIUSN mid; place width-matched to NIUSN (~smaller px); dates smallest */
+.tk-hero__brand-line--niusn {
+  font-weight: 400;
+  font-size: clamp(48px, 9.05vw, 105px);
+  letter-spacing: 0.005em;
+}
+/* Place + dates: same ink as other hero shout lines; blush on headline hover (fine pointer only — no faux button). */
+.tk-hero__brand-line--place,
+.tk-hero__brand-line--dates {
+  font-family: var(--font-tk-hero-main);
+  font-weight: 400;
+  color: inherit;
+}
+@media not (prefers-reduced-motion: reduce) {
+  .tk-hero__brand-line--place,
+  .tk-hero__brand-line--dates {
+    transition: color 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+@media (hover: hover) and (pointer: fine) {
+  .tk-hero__brand:hover .tk-hero__brand-line--place,
+  .tk-hero__brand:hover .tk-hero__brand-line--dates {
+    color: var(--tk-blush-deep);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tk-hero__brand-line--place,
+  .tk-hero__brand-line--dates {
+    transition: none;
+  }
+}
+
+/* Tight tracking + scaled px so “IN HONG KONG” fits ~within NIUSN’s horizontal span */
+.tk-hero__brand-line--place {
+  font-size: clamp(17px, 3.5vw, 43px);
+  letter-spacing: 0.012em;
+}
+.tk-hero__brand-line--event {
+  font-weight: 400;
+  font-size: clamp(60px, 12.95vw, 168px);
+  letter-spacing: 0.004em;
+}
+.tk-hero__brand-line--dates {
+  font-size: clamp(28px, 5.55vw, 72px);
+  letter-spacing: 0.02em;
+}
 .tk-hero__brand-niusn { font-weight: 400; }
-/* Italic kicker stays Fraunces — the soft counterweight to Anton */
+/* Italic kicker stays Fraunces — counterweight to the Passion One hero stack */
 .tk-hero__brand-tag {
   font-family: var(--font-tk-display);
   font-style: italic;
@@ -140,19 +250,6 @@
   color: var(--tk-graphite);
   margin-top: 26px;
 }
-.tk-hero__when {
-  margin-top: 22px;
-  font-family: var(--font-tk-body);
-  font-weight: 600;
-  font-size: clamp(16px, 1.55vw, 21px);
-  letter-spacing: 0.02em;
-  color: var(--tk-ink);
-  text-shadow:
-    0 0 20px rgba(255, 251, 247, 0.75),
-    0 0 1px rgba(255, 251, 247, 0.9),
-    0 1px 2px rgba(58, 42, 48, 0.12);
-}
-
 /* ── Glass CTA — port of niusn-landing.vercel.app's `.hero-cta`
  *    pattern, retinted to the toss-skin palette ──────────────
  *
@@ -185,6 +282,7 @@
   background: rgba(255, 246, 244, 0.78) !important;
   border: 1px solid rgba(232, 155, 173, 0.42) !important;
   color: var(--tk-ink) !important;
+  font-size: clamp(0.8125rem, 0.12rem + 0.85vw, 0.9375rem) !important;
   -webkit-backdrop-filter: blur(18px) saturate(150%) !important;
   backdrop-filter: blur(18px) saturate(150%) !important;
   box-shadow:
@@ -192,6 +290,29 @@
     inset 0 -1px 0 rgba(217, 74, 107, 0.08),
     0 10px 28px rgba(217, 74, 107, 0.18),
     0 2px 8px rgba(184, 130, 145, 0.16) !important;
+}
+
+/* Match base `styles.css` CJK bump (`html:lang(...)`) — keep toss-skin typography in sync there too. */
+html:lang(ko) .hero-cta.hero-cta--glass .hero-cta__inner,
+html:lang(zh) .hero-cta.hero-cta--glass .hero-cta__inner,
+html:lang(zh-Hans) .hero-cta.hero-cta--glass .hero-cta__inner,
+html:lang(zh-Hant) .hero-cta.hero-cta--glass .hero-cta__inner {
+  font-size: clamp(0.875rem, 2.42vw, 1rem) !important;
+}
+
+@media (max-width: 36em) {
+  .hero-cta.hero-cta--glass .hero-cta__inner {
+    font-size: 0.875rem !important;
+    letter-spacing: 0.16em;
+  }
+
+  html:lang(ko) .hero-cta.hero-cta--glass .hero-cta__inner,
+  html:lang(zh) .hero-cta.hero-cta--glass .hero-cta__inner,
+  html:lang(zh-Hans) .hero-cta.hero-cta--glass .hero-cta__inner,
+  html:lang(zh-Hant) .hero-cta.hero-cta--glass .hero-cta__inner {
+    font-size: clamp(0.875rem, 2.85vw, 0.975rem) !important;
+    letter-spacing: 0.1em;
+  }
 }
 
 /* Primary variant tightens the ring with a soft ruby aura,
@@ -272,12 +393,6 @@
   margin-top: 28px;
 }
 
-/* Contact form variant — when the glass CTA wears the
- * `.tk-form__submit` class, strip out the solid-blush button
- * styles (which would override our glass surface) and stretch
- * the pill to match the form fields' width above it, so the
- * submit anchors the column rhythm. Functional native button
- * resets so it behaves like the anchor version. */
 .tk-form__submit.hero-cta.hero-cta--glass {
   background: transparent !important;
   border: 0 !important;
@@ -290,11 +405,7 @@
   -webkit-appearance: none;
   appearance: none;
 }
-/* Stretch the inner pill across the full button so the
- * surface (border, blur, shadow, hover ruby fill) spans the
- * same width as the inputs/textarea above. The chevrons and
- * label stay grouped at center via `justify-content: center`
- * inherited from the base `.hero-cta__inner`. */
+
 .tk-form__submit.hero-cta.hero-cta--glass .hero-cta__inner {
   width: 100%;
   min-height: 56px;
@@ -329,7 +440,7 @@
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.01em;
-  font-size: clamp(40px, 5vw, 68px);
+  font-size: clamp(80px, 10vw, 136px);
   line-height: 0.96;
   color: var(--tk-ink);
 }
@@ -346,9 +457,9 @@
   color: var(--tk-blush-deep);
 }
 .tk-booth__lede {
-  margin: 0 0 clamp(16px, 1.6vw, 24px);
+  margin: 0 0 clamp(32px, 3.2vw, 48px);
   font-family: var(--font-tk-body);
-  font-size: clamp(15px, 1.3vw, 18px);
+  font-size: clamp(30px, 2.6vw, 36px);
   line-height: 1.55;
   color: var(--tk-graphite);
   max-width: 540px;
@@ -456,9 +567,7 @@
   }
 }
 
-/* 3D card ring — between What we do & Contact (`#carousel-spotlight`).
- * Same page background as adjacent sections — no border rules (avoids a hard
- * line before Contact). */
+/* 3D card ring — between Booth & Contact (`#carousel-spotlight`). */
 .tk-section.tk-carousel-section {
   padding-top: clamp(40px, 5.5vw, 72px);
   padding-bottom: clamp(80px, 12vw, 152px);

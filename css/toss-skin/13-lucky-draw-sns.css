@@ -1,0 +1,164 @@
+/* TOSS skin — Lucky draw + in-page SNS (after hero). */
+
+.tk-lucky-draw__head,
+.tk-sns-stack__head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: clamp(22px, 3vw, 32px);
+}
+
+.tk-lucky-draw__lede {
+  margin: 0 auto;
+  max-width: min(42rem, 100%);
+  font-family: var(--font-tk-body);
+  font-size: clamp(17px, 1.65vw, 21px);
+  font-weight: 400;
+  line-height: 1.62;
+  color: var(--tk-graphite);
+  text-wrap: balance;
+  text-align: center;
+}
+
+.tk-sns-stack__nav {
+  margin: 0 auto;
+  max-width: min(52rem, 100%);
+}
+
+/* Folder-style icons · 기본(desktop): 3열×2행 · 모바일만 2열×3행 */
+.tk-sns-stack__tiles {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(10px, 2.2vw, 20px);
+  max-width: min(760px, 100%);
+  margin-inline: auto;
+  justify-items: center;
+}
+
+@media (max-width: 720px) {
+  .tk-sns-stack__tiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: min(540px, 92vw);
+    gap: clamp(16px, 4.2vw, 28px);
+  }
+
+  .tk-sns-stack__tile {
+    gap: clamp(12px, 3.4vw, 18px);
+    padding: clamp(14px, 3.5vw, 20px) clamp(10px, 2.5vw, 14px);
+  }
+
+  .tk-sns-stack__tile-img {
+    width: clamp(96px, 32vw, 136px);
+  }
+
+  .tk-sns-stack__tile-label {
+    font-size: clamp(0.95rem, 4.15vw, 1.125rem);
+    line-height: 1.35;
+    font-weight: 600;
+  }
+}
+
+.tk-sns-stack__tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: clamp(8px, 1.35vw, 12px);
+  text-decoration: none;
+  padding: clamp(10px, 1.8vw, 14px) clamp(6px, 1.2vw, 10px);
+  border-radius: 14px;
+  color: inherit;
+  transition:
+    transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.2s ease,
+    outline-color 0.2s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tk-sns-stack__tile {
+    transition-duration: 0.12s;
+  }
+}
+
+.tk-sns-stack__tile:focus-visible {
+  outline: 2px solid rgba(217, 74, 107, 0.45);
+  outline-offset: 3px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .tk-sns-stack__tile:hover {
+    transform: translateY(-3px);
+    background-color: rgba(232, 155, 173, 0.12);
+  }
+}
+
+.tk-sns-stack__tile-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tk-sns-stack__tile-img {
+  display: block;
+  width: clamp(64px, 12vw, 96px);
+  height: auto;
+  aspect-ratio: 64 / 60;
+  object-fit: contain;
+}
+
+.tk-sns-stack__tile-label {
+  font-family: var(--font-tk-mono);
+  font-weight: 600;
+  font-size: clamp(0.76rem, 1.2vw, 0.86rem);
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: var(--tk-blush-deep);
+  text-align: center;
+  transition: color 0.18s ease;
+}
+
+.tk-sns-stack__tile:hover .tk-sns-stack__tile-label,
+.tk-sns-stack__tile:focus-visible .tk-sns-stack__tile-label {
+  color: var(--tk-ruby);
+}
+
+/* Legacy text-link row (reserved if more channels are added text-only later) */
+.tk-sns-stack__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.55rem clamp(14px, 3vw, 28px);
+}
+
+.tk-sns-stack__list a {
+  font-family: var(--font-tk-mono);
+  font-weight: 600;
+  font-size: clamp(0.68rem, 1.05vw, 0.78rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--tk-blush-deep);
+  text-decoration: none;
+  padding: 0.35rem 0.28rem;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.tk-sns-stack__list a:hover,
+.tk-sns-stack__list a:focus-visible {
+  color: var(--tk-ruby);
+  border-bottom-color: rgba(217, 74, 107, 0.35);
+}
+
+.tk-sns-stack__list a:focus-visible {
+  outline: 2px solid rgba(217, 74, 107, 0.45);
+  outline-offset: 3px;
+  border-radius: 2px;
+}

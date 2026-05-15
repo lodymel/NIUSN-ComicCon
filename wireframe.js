@@ -49,6 +49,106 @@
     scheduleHeroEventParallax();
   }
 
+  /** HK Comic Con–style hero title drift: smooth cursor → --hero-cursor-nx/ny on #top */
+  (function initHeroCursorParallax() {
+    const root = document.getElementById("top");
+    if (!root || !root.classList.contains("tk-hero")) return;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const finePointer = window.matchMedia("(pointer: fine)");
+    if (reduceMotion.matches) return;
+
+    let targetNx = 0;
+    let targetNy = 0;
+    let curNx = 0;
+    let curNy = 0;
+    let rafId = 0;
+    let active = false;
+    const smooth = 0.13;
+
+    function setVars() {
+      root.style.setProperty("--hero-cursor-nx", curNx.toFixed(5));
+      root.style.setProperty("--hero-cursor-ny", curNy.toFixed(5));
+    }
+
+    function tick() {
+      curNx += (targetNx - curNx) * smooth;
+      curNy += (targetNy - curNy) * smooth;
+      setVars();
+      const eps = 0.0015;
+      const moving =
+        Math.abs(targetNx - curNx) > eps ||
+        Math.abs(targetNy - curNy) > eps ||
+        Math.abs(curNx) > eps ||
+        Math.abs(curNy) > eps;
+      if (moving) {
+        rafId = requestAnimationFrame(tick);
+      } else {
+        curNx = targetNx;
+        curNy = targetNy;
+        setVars();
+        rafId = 0;
+      }
+    }
+
+    function requestTick() {
+      if (!rafId) rafId = requestAnimationFrame(tick);
+    }
+
+    function onMove(e) {
+      if (!active || reduceMotion.matches || !finePointer.matches) return;
+      const rect = root.getBoundingClientRect();
+      const mx = e.clientX - rect.left - rect.width * 0.5;
+      const my = e.clientY - rect.top - rect.height * 0.5;
+      const maxX = Math.max(rect.width * 0.42, 1);
+      const maxY = Math.max(rect.height * 0.42, 1);
+      targetNx = Math.max(-1, Math.min(1, mx / maxX));
+      targetNy = Math.max(-1, Math.min(1, my / maxY));
+      requestTick();
+    }
+
+    function onLeave() {
+      targetNx = 0;
+      targetNy = 0;
+      requestTick();
+    }
+
+    function resetToCenter() {
+      targetNx = targetNy = 0;
+      requestTick();
+    }
+
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver(
+        (entries) => {
+          const en = entries[0];
+          active = !!(en && en.isIntersecting);
+          if (!active) resetToCenter();
+        },
+        { threshold: [0, 0.04, 0.08] }
+      );
+      io.observe(root);
+    } else {
+      active = true;
+    }
+
+    root.addEventListener("mousemove", onMove, { passive: true });
+    root.addEventListener("mouseleave", onLeave, { passive: true });
+
+    reduceMotion.addEventListener("change", () => {
+      if (!reduceMotion.matches) return;
+      targetNx = 0;
+      targetNy = 0;
+      curNx = 0;
+      curNy = 0;
+      root.style.removeProperty("--hero-cursor-nx");
+      root.style.removeProperty("--hero-cursor-ny");
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+        rafId = 0;
+      }
+    });
+  })();
+
   const heroCompanyVideo =
     document.getElementById("hero-trailer") || document.getElementById("hero-company-video");
   const soundToggle = document.getElementById("sound-toggle");
@@ -230,7 +330,7 @@
     });
   }
 
-  const SPY_SECTION_IDS = ["top", "booth-info", "what-we-do", "contact"];
+  const SPY_SECTION_IDS = ["top", "lucky-draw", "sns", "what-we-do", "booth-info", "contact"];
 
   /** After in-nav # click, keep underline on target until scroll catches up (avoids lag vs smooth scroll). */
   let navIntentSectionId = null;
@@ -264,8 +364,10 @@
   function navLinkSelectorForSectionSpy(sectionId) {
     const map = {
       top: 'a[href="#top"]',
-      "booth-info": 'a[href="#booth-info"]',
+      "lucky-draw": 'a[href="#lucky-draw"]',
+      sns: 'a[href="#sns"]',
       "what-we-do": 'a[href="#what-we-do"]',
+      "booth-info": 'a[href="#booth-info"]',
       contact: 'a[href="#contact"]',
     };
     return map[sectionId] || null;

@@ -12,8 +12,6 @@
 .site-footer .footer-shell {
   padding-top: 56px; padding-bottom: 32px;
 }
-.site-footer .footer-sns-list a { color: var(--tk-graphite) !important; }
-.site-footer .footer-sns-list a:hover { color: var(--tk-blush-deep) !important; }
 .site-footer .footer-copy { color: var(--tk-mist) !important; }
 .site-footer .footer-marquee {
   background: var(--tk-blush-soft) !important;

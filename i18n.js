@@ -30,6 +30,8 @@
       "nav.booth": "부스",
       "nav.about": "무엇을 하나요",
       "nav.whatWeDo": "무엇을 하나요",
+      "nav.luckyDraw": "럭키드로우",
+      "nav.sns": "SNS",
       "nav.contact": "문의",
       "sound.off": "OFF",
       "sound.on": "ON",
@@ -81,7 +83,6 @@
       "mapIso.closes7": "19:00 폐장",
       "boothInfo.openDetail": "상세 맵(확대)",
       "boothInfo.skipToMap": "부스 안내로 이동 ↓",
-      "boothInfo.ctaMain": "부스 안내",
       "boothInfo.landingEyebrow": "홍콩 코믹콘 2026",
       "boothInfo.landingH2": "부스 · 위치",
       "boothInfo.landingTime": "5.29(금) 오전 10:00 – 5.31(일) 오후 7:00",
@@ -216,42 +217,31 @@
         '<span class="wwd-line"><span class="word">NIUSN은 콘텐츠 제작에</span></span><span class="wwd-line"><span class="word">머무르지 않고</span></span><span class="wwd-line"><span class="word">기술로 교육의 미래를 다시 정의합니다.</span></span><span class="wwd-line"><span class="word wwd-accent">AI</span><span class="word">로 완성하는 월드클래스 애니메이션으로,</span></span><span class="wwd-line"><span class="word">이전에 경험하지 못한 새로운 교육의 기준을 세우고 있습니다.</span></span>',
       "contact.lede1": "행사든, 제휴나 보도·미디어나 인사 차 연락이든?",
       "contact.lede2": "편하게 남겨 주세요, 메시지 보내셔도 돼요. 하나하나 다 읽어요. 약속.",
-      "contact.titleHtml":
-        '함께 <em>이야기해요</em><span class="tk-contact__title-dot">.</span>',
-      "contact.ledeHtml":
-        "행사든, 제휴나 보도·미디어나 인사 차 연락이든? 편하게 남겨 주세요, 메시지 보내셔도 돼요. 하나하나 다 읽어요. 약속.",
       "contact.phEmailSample": "hello@example.com",
       "contact.phMessageLong": "무엇을 함께 만들고 싶으신가요?",
       "landing.hero.brandL1": "NIUSN",
-      "landing.hero.brandL2": "ON COMIC CON 2026",
-      "landing.hero.when": "5월 29일 – 31일 · 홍콩 HKCEC",
+      "landing.hero.brandL2": "홍콩",
+      "landing.hero.brandL3": "COMIC CON 2026",
+      "landing.hero.brandL4": "5월 29일 – 31일",
       "landing.booth.eyebrow": "부스",
-      "landing.booth.titleHtml":
-        '지도 속 <em>길</em>을 따라 우리를 찾아오세요<span class="tk-booth__title-dot">.</span>',
-      "landing.booth.ledeHtml":
-        "이 섹션이 화면에 들어오면 지도에서 메인 입구부터 부스까지 동선 안내가 자동으로 시작해요. <strong>SHOW ME THE WAY</strong>를 눌러 언제든 다시 재생할 수 있어요.",
       "landing.booth.mapIframeTitle": "NIUSN 부스 동선 맵 — HKCEC Hall 3E, D29",
+      "landing.luckyDraw.eyebrow": "럭키드로우",
+      "landing.luckyDraw.lede":
+        "홍콩 코믹콘 2026 기간 중 NIUSN 부스(#3E-D29)에서 럭키드로우 및 현장 경품 행사를 진행합니다. 소진 시까지 제공됩니다.",
+      "landing.sns.eyebrow": "SNS",
+      "landing.sns.navAria": "NIUSN 소셜 미디어",
+      "landing.sns.tileTikTok": "TikTok",
+      "landing.sns.tileInstagram": "Instagram",
+      "landing.sns.tileYouTube": "YouTube",
+      "landing.sns.tileTwitter": "Twitter",
+      "landing.sns.tileLinkedIn": "링크드인",
+      "landing.sns.tileXiaohongshu": "샤오홍슈",
       "landing.wwd.ariaLabel": "무엇을 하나요",
       "landing.wwd.eyebrow": "무엇을 하나요",
-      "landing.wwd.titleHtml":
-        '<em>교육의 미래</em>를 새로 씁니다<span class="nw-title-dot">.</span>',
-      "landing.wwd.ledeHtml":
-        "<strong>NIUSN은 콘텐츠 제작에 머무르지 않습니다.</strong> AI로 완성하는 월드클래스 애니메이션이 학습의 새 기준을 엽니다.",
-      "landing.wwd.c1.titleHtml":
-        '이야기에 <em>생명</em>을 불어넣습니다<span class="nw-title-dot">.</span>',
-      "landing.wwd.c1.body":
-        "모든 이야기는 한 번의 고동에서 시작됩니다. 당신의 고동을 찾아, 화면이 꺼진 뒤에도 남는 애니메이션을 만듭니다. 첫 아이디어부터 마지막 프레임까지요.",
-      "landing.wwd.c1.cta": "@NIUSN_Official 시청",
-      "landing.wwd.c2.titleHtml":
-        '<em>상상</em>과 한배를 젓습니다<span class="nw-title-dot">.</span>',
-      "landing.wwd.c2.body":
-        "혁신은 일정을 지키게 하고, 상상력은 사람들이 머릿속에 되감는 장면을 찾게 합니다. 크루와 파이프라인이 둘 다 품에 담아, 스크린에 남는 건 기계가 아니라 이야기입니다.",
-      "landing.wwd.c2.cta": "파이프라인 둘러보기",
-      "landing.wwd.c3.titleHtml":
-        '<em>당신과</em> 함께 만듭니다<span class="nw-title-dot">.</span>',
-      "landing.wwd.c3.body":
-        "가장 좋은 이야기에는 지문이 묻어 있습니다. 당신의 지문이요. 캐릭터든 장면이든 움직임이든, 당신이 믿는 것에서 시작합니다. 우리는 그것을 세상이 보게 돕습니다.",
-      "landing.wwd.c3.cta": "미팅 예약하기",
+      "landing.wwd.lede":
+        "NIUSN은 단순한 콘텐츠 제작 회사를 넘어 AI로 콘텐츠 산업의 미래를 다시 정의합니다.",
+      "landing.wwd.siteCta": "NIUSN 공식 사이트",
+      "landing.wwd.siteHref": "https://www.niusn.com/?lang=ko",
       "contact.sectionTag": "문의",
       "contact.head1": "함께",
       "contact.head2": "이야기해요",
@@ -302,6 +292,8 @@
       "nav.booth": "BOOTH",
       "nav.about": "WHAT WE DO",
       "nav.whatWeDo": "WHAT WE DO",
+      "nav.luckyDraw": "LUCKY DRAW",
+      "nav.sns": "SNS",
       "nav.contact": "CONTACT",
       "sound.off": "OFF",
       "sound.on": "ON",
@@ -353,7 +345,6 @@
       "mapIso.closes7": "7:00 pm",
       "boothInfo.openDetail": "Open detail map",
       "boothInfo.skipToMap": "Booth information ↓",
-      "boothInfo.ctaMain": "Booth Information",
       "boothInfo.landingEyebrow": "Hong Kong Comic Con 2026",
       "boothInfo.landingH2": "Booth & location",
       "boothInfo.landingTime": "10:00 AM FRI, MAY. 29 – 7:00 PM SUN, MAY. 31",
@@ -488,42 +479,31 @@
         '<span class="wwd-line"><span class="word">NIUSN goes beyond being a</span></span><span class="wwd-line"><span class="word">content production company to redefine the future</span></span><span class="wwd-line"><span class="word">of education through technology.</span></span><span class="wwd-line"><span class="word">By crafting world-class animations powered by </span><span class="word wwd-accent">AI</span><span class="word">,</span></span><span class="wwd-line"><span class="word">we are establishing a new educational standard that has never been seen before.</span></span>',
       "contact.lede1": "An event, a partnership, a press thing, or just hello?",
       "contact.lede2": "Drop us a line, or shoot us a message. We read every one. Promise.",
-      "contact.titleHtml":
-        'Let&apos;s <em>talk</em><span class="tk-contact__title-dot">.</span>',
-      "contact.ledeHtml":
-        "An event, a partnership, a press thing, or just hello? Drop us a line, or shoot us a message. We read every one. Promise.",
       "contact.phEmailSample": "hello@yourname.com",
       "contact.phMessageLong": "What can we make together?",
       "landing.hero.brandL1": "NIUSN",
-      "landing.hero.brandL2": "ON COMIC CON 2026",
-      "landing.hero.when": "May 29 – 31 @Hong Kong HKCEC",
+      "landing.hero.brandL2": "IN HONG KONG",
+      "landing.hero.brandL3": "COMIC CON 2026",
+      "landing.hero.brandL4": "MAY 29 - 31",
       "landing.booth.eyebrow": "Booth",
-      "landing.booth.titleHtml":
-        'Follow the <em>path</em> to us<span class="tk-booth__title-dot">.</span>',
-      "landing.booth.ledeHtml":
-        "When you scroll here, the map automatically guides you from the main entrance to our booth. Tap <strong>SHOW ME THE WAY</strong> anytime to replay the route.",
       "landing.booth.mapIframeTitle": "NIUSN booth wayfinding map — HKCEC Hall 3E, D29",
+      "landing.luckyDraw.eyebrow": "Lucky draw",
+      "landing.luckyDraw.lede":
+        "Stop by the NIUSN booth (#3E-D29) during Hong Kong Comic Con 2026 for our lucky draw and on-site giveaways — while supplies last.",
+      "landing.sns.eyebrow": "SNS",
+      "landing.sns.navAria": "NIUSN social media",
+      "landing.sns.tileTikTok": "TikTok",
+      "landing.sns.tileInstagram": "Instagram",
+      "landing.sns.tileYouTube": "YouTube",
+      "landing.sns.tileTwitter": "Twitter",
+      "landing.sns.tileLinkedIn": "LinkedIn",
+      "landing.sns.tileXiaohongshu": "Xiaohongshu",
       "landing.wwd.ariaLabel": "What we do",
       "landing.wwd.eyebrow": "What we do",
-      "landing.wwd.titleHtml":
-        'Redefining the <em>future of education</em><span class="nw-title-dot">.</span>',
-      "landing.wwd.ledeHtml":
-        "<strong>NIUSN goes beyond content creation.</strong> Our world-class animations, powered by AI, set a new standard for learning.",
-      "landing.wwd.c1.titleHtml":
-        'We Bring Stories to <em>Life</em><span class="nw-title-dot">.</span>',
-      "landing.wwd.c1.body":
-        "Every story begins with a heartbeat. We find yours, and we let the world feel it. From a first idea to a finished frame, we build animations people remember long after the screen goes dark.",
-      "landing.wwd.c1.cta": "Watch @NIUSN_Official",
-      "landing.wwd.c2.titleHtml":
-        'We Align with <em>Imagination</em><span class="nw-title-dot">.</span>',
-      "landing.wwd.c2.body":
-        "Innovation keeps deliverables on schedule and repeatable. Imagination hunts the shot people replay in their heads. Crew and pipeline hold both in focus, so what lands on screen is the story, not the machinery behind it.",
-      "landing.wwd.c2.cta": "Pipeline walk-through",
-      "landing.wwd.c3.titleHtml":
-        'We Create with <em>You</em><span class="nw-title-dot">.</span>',
-      "landing.wwd.c3.body":
-        "The best stories carry a fingerprint. Yours. Every character, every scene, every motion begins with what you believe in. We just help the world see it too.",
-      "landing.wwd.c3.cta": "Book a call",
+      "landing.wwd.lede":
+        "NIUSN goes beyond being a content production company to redefine the future of the content industry through AI-powered innovation.",
+      "landing.wwd.siteCta": "Visit niusn.com",
+      "landing.wwd.siteHref": "https://www.niusn.com/?lang=en",
       "contact.sectionTag": "Contact",
       "contact.head1": "Let's",
       "contact.head2": "talk",
@@ -574,6 +554,8 @@
       "nav.booth": "展位",
       "nav.about": "我们做什么",
       "nav.whatWeDo": "我们做什么",
+      "nav.luckyDraw": "幸运抽奖",
+      "nav.sns": "SNS",
       "nav.contact": "联系",
       "sound.off": "关",
       "sound.on": "开",
@@ -625,7 +607,6 @@
       "mapIso.closes7": "19:00",
       "boothInfo.openDetail": "查看详图",
       "boothInfo.skipToMap": "展位信息 ↓",
-      "boothInfo.ctaMain": "展位信息",
       "boothInfo.landingH2": "展位与位置",
       "boothInfo.landingTime": "5 月 29 日（周五）10:00 – 5 月 31 日（周日）19:00",
       "boothInfo.calloutKicker": "NIUSN 展位",
@@ -759,42 +740,31 @@
         '<span class="wwd-line"><span class="word">NIUSN 不止于</span></span><span class="wwd-line"><span class="word">内容制作公司，</span></span><span class="wwd-line"><span class="word">而以技术重塑教育的未来。</span></span><span class="wwd-line"><span class="word">我们打造由 </span><span class="word wwd-accent">AI</span><span class="word"> 驱动的世界级动画，</span></span><span class="wwd-line"><span class="word">建立前所未见的全新教育标准。</span></span>',
       "contact.lede1": "活动、合作、媒体采访，或只是打个招呼？",
       "contact.lede2": "留言或直接发消息都行。每一条我们都会认真看。说到做到。",
-      "contact.titleHtml":
-        '一起 <em>聊聊</em><span class="tk-contact__title-dot">。</span>',
-      "contact.ledeHtml":
-        "活动、合作、媒体采访，或只是打个招呼？留言或直接发消息都行。每一条我们都会认真看。说到做到。",
       "contact.phEmailSample": "hello@example.com",
       "contact.phMessageLong": "您想和我们一起创造什么？",
       "landing.hero.brandL1": "NIUSN",
-      "landing.hero.brandL2": "ON COMIC CON 2026",
-      "landing.hero.when": "5 月 29 – 31 日 · 香港 HKCEC",
+      "landing.hero.brandL2": "香港",
+      "landing.hero.brandL3": "COMIC CON 2026",
+      "landing.hero.brandL4": "5 月 29 - 31 日",
       "landing.booth.eyebrow": "展位",
-      "landing.booth.titleHtml":
-        '沿着地图上的<em>路线</em>找到我们<span class="tk-booth__title-dot">。</span>',
-      "landing.booth.ledeHtml":
-        "滚动到本区域时，地图会自动演示从主入口到展位的路线。也可随时点击 <strong>SHOW ME THE WAY</strong> 重新播放。",
       "landing.booth.mapIframeTitle": "NIUSN 展位导览地图 — 香港会议展览中心 3E 馆 D29",
+      "landing.luckyDraw.eyebrow": "幸运抽奖",
+      "landing.luckyDraw.lede":
+        "欢迎在香港动漫电玩节 2026 期间到访 NIUSN 展位 (#3E-D29) 参与幸运抽奖及现场礼品，数量有限，送完即止。",
+      "landing.sns.eyebrow": "SNS",
+      "landing.sns.navAria": "NIUSN 社交媒体",
+      "landing.sns.tileTikTok": "TikTok",
+      "landing.sns.tileInstagram": "Instagram",
+      "landing.sns.tileYouTube": "YouTube",
+      "landing.sns.tileTwitter": "Twitter",
+      "landing.sns.tileLinkedIn": "领英",
+      "landing.sns.tileXiaohongshu": "小红书",
       "landing.wwd.ariaLabel": "我们做什么",
       "landing.wwd.eyebrow": "我们做什么",
-      "landing.wwd.titleHtml":
-        '重新定义<em>教育的未来</em><span class="nw-title-dot">。</span>',
-      "landing.wwd.ledeHtml":
-        "<strong>NIUSN 不止于内容创作。</strong>我们以 AI 驱动的世界级动画，树立全新的学习标杆。",
-      "landing.wwd.c1.titleHtml":
-        '让故事焕发<em>生命</em><span class="nw-title-dot">。</span>',
-      "landing.wwd.c1.body":
-        "每个故事都始于一记心动。我们找到属于你的那一记，让世界也能感受。从第一个念头到最后一帧，我们打造让人久久难忘的画面。",
-      "landing.wwd.c1.cta": "观看 @NIUSN_Official",
-      "landing.wwd.c2.titleHtml":
-        '与<em>想象力</em>同行<span class="nw-title-dot">。</span>',
-      "landing.wwd.c2.body":
-        "创新让交付准时、可复现；想象力追逐人们会在脑海里反复回放的镜头。团队与流程双线并进，留在屏幕上的应是故事，而不是背后的机器。",
-      "landing.wwd.c2.cta": "了解制作流程",
-      "landing.wwd.c3.titleHtml":
-        '与<em>你</em>共同创作<span class="nw-title-dot">。</span>',
-      "landing.wwd.c3.body":
-        "最好的故事带着指纹——你的指纹。每个角色、每场戏、每个动作，都从你相信的事物开始；我们帮助世界看见它。",
-      "landing.wwd.c3.cta": "预约通话",
+      "landing.wwd.lede":
+        "NIUSN 不止于内容制作公司，更以人工智能重新定义内容产业的未来。",
+      "landing.wwd.siteCta": "访问 niusn.com",
+      "landing.wwd.siteHref": "https://www.niusn.com/?lang=zh-Hans",
       "contact.sectionTag": "联系",
       "contact.head1": "一起",
       "contact.head2": "聊聊",
@@ -845,6 +815,8 @@
       "nav.booth": "展位",
       "nav.about": "我們做什麼",
       "nav.whatWeDo": "我們做什麼",
+      "nav.luckyDraw": "幸運抽獎",
+      "nav.sns": "SNS",
       "nav.contact": "聯絡",
       "sound.off": "關",
       "sound.on": "開",
@@ -896,7 +868,6 @@
       "mapIso.closes7": "19:00",
       "boothInfo.openDetail": "展開詳圖",
       "boothInfo.skipToMap": "Booth 資訊 ↓",
-      "boothInfo.ctaMain": "展位資訊",
       "boothInfo.landingEyebrow": "2026 香港動漫電玩節",
       "boothInfo.landingH2": "展位與位置",
       "boothInfo.landingTime": "5 月 29 日（週五）10:00 – 5 月 31 日（週日）19:00",
@@ -1031,42 +1002,31 @@
         '<span class="wwd-line"><span class="word">NIUSN 不僅是</span></span><span class="wwd-line"><span class="word">內容製作公司，</span></span><span class="wwd-line"><span class="word">更以技術重新定義教育的未來。</span></span><span class="wwd-line"><span class="word">我們打造由 </span><span class="word wwd-accent">AI</span><span class="word"> 驅動的世界級動畫，</span></span><span class="wwd-line"><span class="word">建立前所未見的全新教育標準。</span></span>',
       "contact.lede1": "活動、合作、媒體採訪，或只是想打個招呼？",
       "contact.lede2": "留言或直接發訊息都行。每一則我們都會認真看。說到做到。",
-      "contact.titleHtml":
-        '一起 <em>聊聊</em><span class="tk-contact__title-dot">。</span>',
-      "contact.ledeHtml":
-        "活動、合作、媒體採訪，或只是想打個招呼？留言或直接發訊息都行。每一則我們都會認真看。說到做到。",
       "contact.phEmailSample": "hello@example.com",
       "contact.phMessageLong": "您想和我們一起創造什麼？",
       "landing.hero.brandL1": "NIUSN",
-      "landing.hero.brandL2": "ON COMIC CON 2026",
-      "landing.hero.when": "5 月 29 – 31 日 · 香港 HKCEC",
+      "landing.hero.brandL2": "香港",
+      "landing.hero.brandL3": "COMIC CON 2026",
+      "landing.hero.brandL4": "5 月 29 - 31 日",
       "landing.booth.eyebrow": "展位",
-      "landing.booth.titleHtml":
-        '沿著地圖上的<em>路線</em>找到我們<span class="tk-booth__title-dot">。</span>',
-      "landing.booth.ledeHtml":
-        "捲動到此區域時，地圖會自動示範從主入口到展位的路線。也可隨時點選 <strong>SHOW ME THE WAY</strong> 重新播放。",
       "landing.booth.mapIframeTitle": "NIUSN 展位導覽地圖 — 香港會議展覽中心 3E 館 D29",
+      "landing.luckyDraw.eyebrow": "幸運抽獎",
+      "landing.luckyDraw.lede":
+        "歡迎在香港動漫電玩節 2026 期間來到 NIUSN 展位 (#3E-D29) 參與幸運抽獎及現場禮品，數量有限，送完即止。",
+      "landing.sns.eyebrow": "SNS",
+      "landing.sns.navAria": "NIUSN 社群媒體",
+      "landing.sns.tileTikTok": "TikTok",
+      "landing.sns.tileInstagram": "Instagram",
+      "landing.sns.tileYouTube": "YouTube",
+      "landing.sns.tileTwitter": "Twitter",
+      "landing.sns.tileLinkedIn": "LinkedIn",
+      "landing.sns.tileXiaohongshu": "小紅書",
       "landing.wwd.ariaLabel": "我們做什麼",
       "landing.wwd.eyebrow": "我們做什麼",
-      "landing.wwd.titleHtml":
-        '重新定義<em>教育的未來</em><span class="nw-title-dot">。</span>',
-      "landing.wwd.ledeHtml":
-        "<strong>NIUSN 不僅於內容創作。</strong>我們以 AI 驅動的世界級動畫，樹立全新的學習標竿。",
-      "landing.wwd.c1.titleHtml":
-        '讓故事煥發<em>生命</em><span class="nw-title-dot">。</span>',
-      "landing.wwd.c1.body":
-        "每個故事都始於一記心動。我們找到屬於你的那一記，讓世界也能感受。從第一個念頭到最後一幀，我們打造讓人久久難忘的畫面。",
-      "landing.wwd.c1.cta": "觀看 @NIUSN_Official",
-      "landing.wwd.c2.titleHtml":
-        '與<em>想像力</em>同行<span class="nw-title-dot">。</span>',
-      "landing.wwd.c2.body":
-        "創新讓交付準時、可重現；想像力追逐人們會在腦海裡反覆回放的鏡頭。團隊與流程雙線並進，留在螢幕上的應是故事，而不是背後的機器。",
-      "landing.wwd.c2.cta": "了解製作流程",
-      "landing.wwd.c3.titleHtml":
-        '與<em>你</em>共同創作<span class="nw-title-dot">。</span>',
-      "landing.wwd.c3.body":
-        "最好的故事帶著指紋——你的指紋。每個角色、每場戲、每個動作，都從你相信的事物開始；我們幫助世界看見它。",
-      "landing.wwd.c3.cta": "預約通話",
+      "landing.wwd.lede":
+        "NIUSN 不僅是內容製作公司，更以人工智能重新定義內容產業的未來。",
+      "landing.wwd.siteCta": "前往 niusn.com",
+      "landing.wwd.siteHref": "https://www.niusn.com/?lang=zh-Hant",
       "contact.sectionTag": "聯絡",
       "contact.head1": "一起",
       "contact.head2": "聊聊",
@@ -1219,6 +1179,12 @@
         const key = el.getAttribute("data-i18n");
         if (!key) return;
         el.textContent = t(L, key);
+      });
+
+      document.querySelectorAll("[data-i18n-href]").forEach((el) => {
+        const key = el.getAttribute("data-i18n-href");
+        if (!key) return;
+        el.setAttribute("href", t(L, key));
       });
 
       document.querySelectorAll("[data-i18n-html]").forEach((el) => {

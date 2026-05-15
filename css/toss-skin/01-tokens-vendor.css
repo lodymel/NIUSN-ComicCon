@@ -36,11 +36,10 @@
   --tk-shadow-plush: 0 4px 16px rgba(184, 130, 145, 0.18), 0 28px 70px rgba(184, 130, 145, 0.10);
 
   /* Headline = Anton (condensed display).
-   * Display  = Fraunces (italic / serif accents).
-   * Body     = DM Sans. Mono = JetBrains.
-   * Mixing rule: Anton carries the poster-scale "shout" moments
-   * (hero wordmark, section H2, practice titles, contact). Fraunces
-   * stays as the italic refrain (kicker, lede, numerals, eyebrows). */
+   * Hero H1 + section eyebrows use Passion One Regular; other poster shouts use Anton (--font-tk-headline). */
+  --font-tk-hero-main: "Passion One", "Anton", "Bebas Neue", "Oswald", Impact, sans-serif;
+  /* Non-hero poster shout uses Anton (--font-tk-headline).
+   * Display(Fraunces) = italic refrain. Body = DM Sans. Mono = JetBrains. */
   --font-tk-headline: 'Anton', 'Bebas Neue', 'Oswald', Impact, sans-serif;
   --font-tk-display:  'Fraunces', 'Instrument Serif', Georgia, serif;
   --font-tk-body:     'DM Sans', 'Pretendard', system-ui, sans-serif;
@@ -65,6 +64,9 @@
 /* ── lang=ko typography (KR product-style stacks; keep Latin fonts as-is) */
 
 html:lang(ko) {
+  --font-tk-hero-main: "Passion One", "Anton", "Bebas Neue", "Oswald", Impact,
+    "Pretendard", Pretendard, "Apple SD Gothic Neo", "Nanum Gothic", "Noto Sans KR",
+    -apple-system, BlinkMacSystemFont, "Malgun Gothic", sans-serif;
   --font-tk-headline: "Anton", "Bebas Neue", "Oswald", Impact,
     "Pretendard", Pretendard, "Apple SD Gothic Neo", "Nanum Gothic", "Noto Sans KR",
     -apple-system, BlinkMacSystemFont, "Malgun Gothic", sans-serif;
@@ -95,7 +97,7 @@ html:lang(ko) body {
 html:lang(ko) .tk-booth__lede,
 html:lang(ko) .tk-contact__lede,
 html:lang(ko) .niusn-what .nw-lede,
-html:lang(ko) .niusn-what .nw-card > p {
+html:lang(ko) .niusn-what .nw-body__lede {
   line-height: 1.72;
   letter-spacing: 0;
 }
@@ -105,14 +107,15 @@ html:lang(ko) .tk-field textarea {
   line-height: 1.55;
 }
 
-html:lang(ko) .tk-hero__when {
+html:lang(ko) .tk-hero__brand-line--place,
+html:lang(ko) .tk-hero__brand-line--dates {
   letter-spacing: 0;
 }
 
-/* Eyebrows: relax mono tracking when mixed with Hangul */
+/* Section eyebrows — Hangul tighter tracking vs Latin Passion One */
 html:lang(ko) .tk-eyebrow,
 html:lang(ko) .niusn-what .nw-eyebrow {
-  letter-spacing: 0.04em;
+  letter-spacing: 0.012em;
 }
 
 html:lang(ko) .tk-field label {
@@ -124,35 +127,21 @@ html:lang(ko) .nav-link,
 html:lang(ko) .nav-cta {
   font-family: "JetBrains Mono", "IBM Plex Mono", ui-monospace, "Noto Sans KR",
     "Pretendard", monospace;
-  letter-spacing: 0.06em;
+  font-weight: 700;
+  letter-spacing: 0.01em;
 }
 
-/* Lang switcher: labels are ASCII — keep mono + tracking 0.22em */
+/* Sound toggle caption (KR) — mono + tight tracking */
 html:lang(ko) .sound-block__caption {
   font-family: "JetBrains Mono", "IBM Plex Mono", "Noto Sans KR", "Pretendard", ui-monospace, monospace;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.018em;
 }
 
 /* em in KR titles: same sans stack as headline; bump weight for readability */
-html:lang(ko) .niusn-what .nw-title em,
-html:lang(ko) .tk-booth__title em,
-html:lang(ko) .tk-contact__title em {
+html:lang(ko) .tk-booth__title em {
   font-family: var(--font-tk-headline);
   font-style: normal;
   font-weight: 600;
-  font-variation-settings: normal;
-}
-
-/* Pillar card h3: body stack; em = weight only */
-html:lang(ko) .niusn-what .nw-card h3 {
-  font-family: var(--font-tk-body, var(--nw-font-body));
-  font-weight: 600;
-  letter-spacing: -0.02em;
-}
-html:lang(ko) .niusn-what .nw-card h3 em {
-  font-family: inherit;
-  font-style: normal;
-  font-weight: 700;
   font-variation-settings: normal;
 }
 
@@ -164,31 +153,17 @@ html:lang(ko) .niusn-what .nw-card h3 em {
   .niusn-what .nw-head {
     max-width: min(92vw, 920px);
   }
-  .niusn-what .nw-title,
-  .tk-booth__title,
-  .tk-contact__title {
+  .tk-booth__title {
     white-space: nowrap;
     line-height: 1.15;
-    font-size: clamp(20px, 2.9vw, 52px);
+    font-size: clamp(40px, 5.8vw, 104px);
     letter-spacing: -0.035em;
   }
 }
 
 @media (max-width: 880px) {
-  .niusn-what .nw-title,
-  .tk-booth__title,
-  .tk-contact__title {
+  .tk-booth__title {
     white-space: normal;
-    line-height: 1.22;
-  }
-}
-
-/* Wide view: pillar card titles one line (3-col) */
-@media (min-width: 1320px) {
-  html:lang(ko) .niusn-what .nw-card h3 {
-    max-width: none;
-    white-space: nowrap;
-    font-size: clamp(17px, 1.1vw, 21px);
     line-height: 1.22;
   }
 }
@@ -786,70 +761,132 @@ body::before {
 .tk-section + .tk-section { padding-top: 0; }
 
 .tk-eyebrow {
-  font-family: var(--font-tk-mono);
-  font-size: 11px;
-  letter-spacing: 0.22em;
+  font-family: var(--font-tk-hero-main);
+  /* Passion One Regular (400) — section labels; size under hero shout */
+  font-size: clamp(28px, 5.85vw, 64px);
+  font-weight: 400;
+  letter-spacing: 0.022em;
   text-transform: uppercase;
   color: var(--tk-blush-deep);
-  display: inline-flex; align-items: center; gap: 10px;
-}
-.tk-eyebrow::before {
-  content: ""; width: 6px; height: 6px; border-radius: 50%;
-  background: var(--tk-blush-deep);
-  /* Static halo (always visible) is the inner 4px blush ring.
-   * The second shadow (starts at radius 0, ends at radius 14
-   * with alpha 0) is the *ping* — it expands outward and fades
-   * out, then resets. Together they read as a sonar dot:
-   * a calm core with a soft ripple, drawing the reader's eye
-   * to the start of each section. */
-  box-shadow:
-    0 0 0 4px rgba(232, 155, 173, 0.22),
-    0 0 0 0 rgba(217, 74, 107, 0.55);
-  animation: tk-eyebrow-ping 2.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  /* Title centred; GEMBIT stacked above (`tk-eyebrow__cluster`). */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
-/* The What We Do eyebrow's `::before` dot inherits the same
- * structure; we re-apply the animation here so the rule
- * survives the scoped `.niusn-what` overrides above without
- * needing the `.tk-eyebrow` class on it. */
-.niusn-what .nw-eyebrow::before {
-  box-shadow:
-    0 0 0 4px rgba(232, 155, 173, 0.22),
-    0 0 0 0 rgba(217, 74, 107, 0.55);
-  animation: tk-eyebrow-ping 2.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+/* GEMBIT above label, both centred on the same axis. */
+.tk-eyebrow__cluster {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0;
 }
 
-@keyframes tk-eyebrow-ping {
-  /* The outer ring radiates from the dot center, fades as it
-   * expands, then rests for ~30% of the cycle before pinging
-   * again — gives the pulse a natural, breathing rhythm
-   * (rather than a relentless strobe). */
-  0% {
-    box-shadow:
-      0 0 0 4px rgba(232, 155, 173, 0.22),
-      0 0 0 0 rgba(217, 74, 107, 0.55);
+/* Pull title closer than flex gap alone (transparent padding in mascot art). */
+.tk-eyebrow__cluster > .tk-eyebrow__gembit + span {
+  margin-top: clamp(-12px, -1.52vw, -3px);
+}
+
+/* Mobile: keep icon–title from feeling crushed (touch skim). */
+@media (max-width: 720px) {
+  .tk-eyebrow {
+    font-size: clamp(34px, 8.35vw, 56px);
   }
-  70% {
-    box-shadow:
-      0 0 0 4px rgba(232, 155, 173, 0.22),
-      0 0 0 14px rgba(217, 74, 107, 0);
+  .tk-section-gembit-icon {
+    width: clamp(72px, 19.75vw, 104px);
   }
-  100% {
-    box-shadow:
-      0 0 0 4px rgba(232, 155, 173, 0.22),
-      0 0 0 14px rgba(217, 74, 107, 0);
+  .tk-eyebrow__cluster {
+    gap: clamp(8px, 2.2vw, 16px);
+  }
+  .tk-eyebrow__cluster > .tk-eyebrow__gembit + span {
+    margin-top: 0;
   }
 }
 
-/* Honour the user's motion preference — disable the ping
- * for anyone who has reduced-motion enabled. The static dot
- * + halo remain so the visual signature is preserved. */
-@media (prefers-reduced-motion: reduce) {
-  .tk-eyebrow::before,
-  .niusn-what .nw-eyebrow::before {
-    animation: none;
-    box-shadow: 0 0 0 4px rgba(232, 155, 173, 0.22);
+.tk-eyebrow__gembit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+/* GEMBIT mascot icons — PNG sources converted to transparent WebP */
+.tk-section-gembit-icon {
+  flex-shrink: 0;
+  display: block;
+  width: clamp(54px, 8.95vw, 88px);
+  height: auto;
+  aspect-ratio: 64 / 60;
+  object-fit: contain;
+  pointer-events: none;
+  position: relative;
+  /* Stacked-above eyebrow titles; keep flush with capsule base (animations use transform). */
+  top: 0;
+}
+
+/* Distinct loop per section (playful, non-synced) */
+@media (prefers-reduced-motion: no-preference) {
+  #lucky-draw .tk-section-gembit-icon {
+    animation: tk-gembit-lucky 4.6s ease-in-out infinite;
+    animation-delay: 0s;
+    transform-origin: 50% 78%;
   }
+  #sns .tk-section-gembit-icon {
+    animation: tk-gembit-sns 3.5s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+    animation-delay: 0.4s;
+    transform-origin: 50% 82%;
+  }
+  #what-we-do .tk-section-gembit-icon {
+    animation: tk-gembit-wwd 5.2s ease-in-out infinite alternate;
+    animation-delay: 0.15s;
+    transform-origin: 50% 72%;
+  }
+  #booth-info .tk-section-gembit-icon {
+    animation: tk-gembit-booth 4.1s ease-in-out infinite;
+    animation-delay: 0.55s;
+    transform-origin: 45% 80%;
+  }
+  #contact .tk-section-gembit-icon {
+    animation: tk-gembit-contact 4.9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    animation-delay: 0.25s;
+    transform-origin: 50% 80%;
+  }
+}
+
+@keyframes tk-gembit-lucky {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  35% { transform: translateY(-7px) rotate(-5deg); }
+  70% { transform: translateY(3px) rotate(4deg); }
+}
+
+@keyframes tk-gembit-sns {
+  0%, 100% { transform: rotate(-2.5deg) scale(1); }
+  25% { transform: rotate(5deg) scale(1.06); }
+  50% { transform: rotate(-4deg) scale(1); }
+  75% { transform: rotate(3deg) scale(1.05); }
+}
+
+@keyframes tk-gembit-wwd {
+  0% { transform: translateY(0) scale(1); }
+  45% { transform: translateY(-8px) scale(1.09); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+@keyframes tk-gembit-booth {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  30% { transform: translateX(-8px) rotate(-4deg); }
+  60% { transform: translateX(8px) rotate(4deg); }
+}
+
+@keyframes tk-gembit-contact {
+  0%, 100% { transform: translateY(0) scale(1) rotate(0deg); }
+  18% { transform: translateY(-5px) scale(1.06) rotate(-3deg); }
+  36% { transform: translateY(2px) scale(0.97) rotate(3deg); }
+  55% { transform: translateY(-4px) scale(1.05) rotate(-2deg); }
+  72% { transform: translateY(1px) scale(1) rotate(1deg); }
 }
 
 .tk-h2 {

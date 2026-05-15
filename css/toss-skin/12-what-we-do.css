@@ -88,26 +88,25 @@
   .niusn-what .nw-head { margin-bottom: 40px; }
 }
 
-/* Eyebrow — mirrors `.tk-eyebrow` exactly so the section's
- * opening note speaks in the same voice as Booth / Contact:
- * blush-deep mono caps + blush-deep dot with halo. */
+/* Eyebrow — Passion One + GEMBIT mascot (`::before` dot omitted). */
 .niusn-what .nw-eyebrow {
-  font-family: var(--font-tk-mono, var(--nw-font-mono));
-  font-size: 11px;
-  letter-spacing: 0.22em;
+  font-family: var(--font-tk-hero-main, var(--nw-font-display));
+  font-size: clamp(28px, 5.85vw, 64px);
+  font-weight: 400;
+  letter-spacing: 0.022em;
   text-transform: uppercase;
   color: var(--tk-blush-deep, var(--color-blush-deep));
   margin-bottom: 0;
-  display: inline-flex;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 10px;
+  width: 100%;
 }
-.niusn-what .nw-eyebrow::before {
-  content: "";
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--tk-blush-deep, var(--color-blush-deep));
-  box-shadow: 0 0 0 4px rgba(232, 155, 173, 0.22);
+
+@media (max-width: 720px) {
+  .niusn-what .nw-eyebrow {
+    font-size: clamp(34px, 8.35vw, 56px);
+  }
 }
 
 /* Title — Anton-style H2:
@@ -156,7 +155,47 @@
   font-weight: 500;
 }
 
-/* ───── Three pillars ───── */
+/* ───── Body copy + single CTA (GEMBIT-era layout) ───── */
+.niusn-what .nw-body {
+  max-width: min(40rem, 100%);
+  margin: clamp(28px, 4vw, 44px) auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.niusn-what .nw-body__lede {
+  margin: 0;
+  max-width: 42rem;
+  font-family: var(--font-tk-body, var(--nw-font-body));
+  font-size: clamp(17px, 1.65vw, 22px);
+  font-weight: 400;
+  line-height: 1.62;
+  color: var(--tk-graphite, var(--color-graphite));
+  text-wrap: balance;
+}
+.niusn-what .nw-body .nw-rule {
+  margin-top: clamp(26px, 3.25vw, 38px);
+  padding-top: clamp(22px, 2.75vw, 30px);
+  width: 100%;
+  max-width: min(432px, 100%);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 14px;
+  border-top: 1px dashed rgba(58, 42, 48, 0.12);
+  position: relative;
+  z-index: 1;
+}
+.niusn-what .nw-body .nw-foot__cta {
+  width: 100%;
+  margin-inline: 0;
+  align-self: stretch;
+}
+
+/* ───── Three pillars (legacy; inert without markup) ───── */
 .niusn-what .nw-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -288,8 +327,10 @@
   z-index: 1;
 }
 
-/* Liquid wash — dual-layer gradient drift + slow nudge (background on ::before so
- * `transition: background` on `.hero-cta__inner` cannot damp the motion). */
+/* ── NIUSN WWD · Card footer “living” CTA (blush-deep liquid wash · hover frost)
+ *    Overrides generic cotton-glass `.hero-cta--glass` from `02-hero.css`.
+ * ───────────────────────────────────────────────────────────────────────────── */
+
 @keyframes niusn-what-cta-water {
   0% {
     background-position: 0% 44%, 100% 56%;
@@ -450,7 +491,7 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  /* Reclaim plush outer lift after frost block’s lighter resting shadow. */
+  /* Reclaim plush outer lift after frost block's lighter resting shadow. */
   .niusn-what .nw-foot__cta.hero-cta.hero-cta--glass:hover .hero-cta__inner,
   .niusn-what .nw-foot__cta.hero-cta.hero-cta--glass:focus-visible .hero-cta__inner {
     box-shadow:
@@ -514,6 +555,13 @@
   .niusn-what .nw-foot__cta.hero-cta.hero-cta--glass:active .hero-cta__enter-hint {
     transform: none !important;
   }
+}
+
+.niusn-what .nw-body .nw-foot__cta.hero-cta.hero-cta--glass .hero-cta__inner {
+  width: 100%;
+  max-width: 432px;
+  min-height: 56px;
+  margin-inline: auto;
 }
 
 .niusn-what .nw-foot__cta .hero-cta__label {
