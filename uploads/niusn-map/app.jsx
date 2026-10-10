@@ -427,7 +427,7 @@ function InfoCard({ onFocus, focusing }) {
       <div className="meta-grid">
         <div className="meta-item">
           <div className="meta-label">Dates</div>
-          <div className="meta-value">29–31 May 2026</div>
+          <div className="meta-value">29 TO 31 MAY 2026</div>
         </div>
         <div className="meta-item">
           <div className="meta-label">Hall</div>
