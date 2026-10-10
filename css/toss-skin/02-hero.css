@@ -119,14 +119,39 @@
   }
 }
 
-/* Mobile hero video: preserve 16∶9 framing — fit entire frame (`contain`), no baked-in crop zoom. */
+/* Mobile hero: keep the footage full-bleed. `contain` left large empty bands above
+ * and below a landscape frame on portrait screens, making the first view feel
+ * unfinished. Covering the hero keeps the visual density consistent with tablet
+ * and desktop while the centered focal point remains visible. */
 @media (max-width: 720px) {
   .tk-hero__bg {
     --tk-hero-crop: 1;
     background: var(--tk-cotton);
   }
   .tk-hero__yt {
-    object-fit: contain;
+    object-fit: cover;
+    object-position: 58% center;
+  }
+  .tk-hero__inner {
+    width: 100%;
+    padding: calc(var(--header-h) + 48px) 16px 64px;
+  }
+  .tk-hero__brand {
+    gap: clamp(2px, 0.8vw, 5px);
+    transform: none;
+  }
+  .tk-hero__brand-line--niusn {
+    font-size: clamp(46px, 14vw, 72px);
+  }
+  .tk-hero__brand-line--place {
+    font-size: clamp(17px, 5.2vw, 27px);
+  }
+  .tk-hero__brand-line--event {
+    font-size: clamp(48px, 15vw, 76px);
+    line-height: 0.84;
+  }
+  .tk-hero__brand-line--dates {
+    font-size: clamp(28px, 8.4vw, 42px);
   }
 }
 
@@ -698,4 +723,3 @@ html:lang(zh-Hant) .hero-cta.hero-cta--glass .hero-cta__inner {
  * is already capped by the design system; nothing extra
  * needed here. The iframe's *internal* animations are
  * the map's own concern and respect their own settings. */
-
