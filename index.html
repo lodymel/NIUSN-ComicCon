@@ -11,6 +11,35 @@
     <title>NIUSN · Hong Kong Comic Con 2026</title>
     <link rel="canonical" href="./" />
 
+    <script>
+      (function () {
+        var storageKey = "niusn-owner-analytics-disabled";
+        var url = new URL(window.location.href);
+        var ownerMode = url.searchParams.get("owner");
+
+        try {
+          if (ownerMode === "1") localStorage.setItem(storageKey, "1");
+          if (ownerMode === "0") localStorage.removeItem(storageKey);
+        } catch (_) {}
+
+        if (ownerMode === "1" || ownerMode === "0") {
+          url.searchParams.delete("owner");
+          history.replaceState(null, "", url.pathname + url.search + url.hash);
+        }
+
+        window.va = window.va || function () {
+          (window.vaq = window.vaq || []).push(arguments);
+        };
+        window.va("beforeSend", function (event) {
+          try {
+            if (localStorage.getItem(storageKey) === "1") return null;
+          } catch (_) {}
+          return event;
+        });
+      })();
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+
     <!-- OG / Twitter -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://lodymel.github.io/NIUSN-ComicCon/" />

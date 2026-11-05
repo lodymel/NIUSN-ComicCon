@@ -4,3 +4,5 @@ uploads/niusn-map/node_modules/
 *.log
 .env
 .env.*
+.vercel
+.env*
