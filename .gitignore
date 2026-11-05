@@ -6,3 +6,4 @@ uploads/niusn-map/node_modules/
 .env.*
 .vercel
 .env*
+public-dist/

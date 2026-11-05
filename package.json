@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "npx --yes serve .",
-    "build": "npm run build:map",
+    "build": "npm run build:map && node scripts/build-site.mjs",
     "build:map": "cd uploads/niusn-map && npm install && npm run build"
   }
 }
